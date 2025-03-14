@@ -1,0 +1,104 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Data Science Projects </title>
+		<style>
+			body {
+				background-color: #000; /* Black background */
+				color: #fff; /* White text */
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 20px;
+				text-align: center; /* Centering the content */
+			}
+
+			.content-wrapper {
+				display: inline-block;
+				text-align: left; /* Ensures text alignment inside the box */
+				max-width: 1200px; /* Maximum width for content */
+				width: 100%;
+				margin: 50px auto; /* Centering the content and adding top margin */
+				margin-top: 200px; /* Ajoute un espace entre la barre de navigation et le contenu */
+			}
+
+			.container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 20px;
+				border-bottom: 1px solid #555; /* Grey line for separation */
+				padding-bottom: 20px;
+			}
+
+			.text {
+				width: 60%;
+			}
+
+			.image {
+				width: 35%;
+			}
+
+			.image img {
+				max-width: 100%;
+				height: auto;
+			}
+
+			.project-title {
+				font-size: 24px;
+				font-weight: bold;
+				color: #ffc107 ;
+			}
+
+			.project-publish {
+				font-size: 17px;
+				font-weight: bold;
+			}
+
+			.project-details {
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="content-wrapper">
+		<div class="container">
+			<div class="text">
+				<div class="project-title">My Journey </div>
+				<div class="project-publish"> Published 4th August 2024</div>
+				<div class="project-details">
+				<p>Winding up in a data science career is both expected and a surprise to me. Let me explain.</p>
+				<p>From a young age, I had a particular fondness for mathematics because it challenged my mind and sparked my curiosity. I appreciated the logical thinking and problem-solving it required. During my school years, I quickly picked up the basics of coding. My first taste of programming was with HTML, which amazed me because a few lines of code could create something functional and powerful. This early interest made me dream of becoming a developer.</p>
+
+				<p>Entering university, I chose to pursue a Bachelor's in Mathematics and Computer Science from Paris Nanterre University. I began to immerse myself more deeply in coding and mathematics, starting with the C language. This foundation soon expanded to include languages like Java and C++. After completing my studies, I embarked on two internships during the summer of 2017. These experiences were both inspiring and enlightening, giving me a taste of the professional world of coding. However, I still felt that something was missing. The internships offered limited interaction with numbers, which I craved. This realization led me to pursue a Master's in Computer Science with a focus on Artificial Intelligence, seeking to merge my love for coding with a deeper engagement in mathematical problem-solving.
+
+				<p>I moved to Luxembourg, a new and exciting country for me. I was thrilled not only to explore this new place but also because of the program I was registered in. At that time, Data Science wasn't yet known as the “sexiest career of the 21st Century,” and I hadn't encountered analysts or statisticians to consider it a viable option. As the year began, I felt increasingly impressed and happy, discovering new concepts and seeing how mathematics was applied in machine learning and artificial intelligence in general.</p>
+
+				<p>Fortuitously, my studies in Luxembourg introduced me to the expansive world of big data analytics, machine learning, and essential tools like R, Python, and Scala. Delving into Python rekindled my love for coding and its powerful ability to manipulate data. I became enthralled by the field of analytics, captivated by its depth and potential. Each new concept and technique further deepened my understanding and excitement, making this path far more interesting and fulfilling than I had ever anticipated. The intricate dance of mathematics and technology in machine learning and artificial intelligence felt like a perfect harmony, fueling my passion to explore even further.</p>
+
+				<p>After immersing myself in the world of big data and machine learning, I was certain that working with data was my true calling. However, I still felt less confident in my grasp of all the techniques. Determined to overcome this hurdle, I found a Master’s program in Data Science that perfectly matched my needs. This program promised to provide the comprehensive foundation I needed to embark on my journey as a Data Scientist and Analyst.</p>
+
+				<p>Enrolling in the program proved to be a pivotal decision. The coursework was not only fascinating but also instrumental in helping me conquer my apprehension towards manipulation of complex datasets. I began to see the beauty and power of data science methods, transforming my uncertainty into a newfound strength. With each passing day, I became more proficient and confident, eager to dive into new projects and adopt innovative techniques.</p>
+
+				<p>This transformative experience molded me into a more adept data scientist, ready to tackle challenges and showcase my skills in the professional world. Armed with a robust education and a passion for analytics, I was prepared to embark on a future filled with exciting opportunities and endless possibilities in the realm of data.</div>
+
+				</a>
+
+			</div>
+
+
+
+
+		</div>
+
+	</body>
+
+{% endblock %}

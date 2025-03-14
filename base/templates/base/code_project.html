@@ -1,0 +1,127 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Data Science Projects </title>
+		<style>
+			body {
+				background-color: #000; /* Black background */
+				color: #fff; /* White text */
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 20px;
+				text-align: center; /* Centering the content */
+			}
+
+			.content-wrapper {
+				display: inline-block;
+				text-align: left; /* Ensures text alignment inside the box */
+				max-width: 1200px; /* Maximum width for content */
+				width: 100%;
+				margin: 50px auto; /* Centering the content and adding top margin */
+				margin-top: 200px; /* Ajoute un espace entre la barre de navigation et le contenu */
+			}
+
+			.container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 20px;
+				border-bottom: 1px solid #555; /* Grey line for separation */
+				padding-bottom: 20px;
+			}
+
+			.text {
+				width: 60%;
+			}
+
+			.image {
+				width: 35%;
+			}
+
+			.image img {
+				max-width: 100%;
+				height: auto;
+			}
+
+			.project-title {
+				font-size: 24px;
+				font-weight: bold;
+				color: #ffc107 ;
+			}
+
+			.project-details {
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="content-wrapper">
+		<div class="container">
+			<div class="text">
+				<div class="project-title">Web Scraping </div>
+				<div class="project-details">The primary goal was to automate the extraction of job listings for "Data Scientist" positions from the APEC website. This involved using web scraping techniques to gather detailed information such as job title, company, description, salary, contract type, location, and publication date, and storing this data for analysis.</div>
+				<div class="project-details"><strong>Tools used</strong>: Python, Selenium, Pandas, CSV</div>
+				<div class="project-details"><strong>Techniques</strong>: Web Scraping, Data Processing, Data Export</div>
+				<div class="project-details"><strong>Platforms</strong>: Visual studio code</div>
+				<div class="project-details"><strong>Year</strong>: Apr 2021</div>
+				<a href="https://github.com/youssefbaz/job-scraper" target="_blank">
+					<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
+				</a>
+
+			</div>
+        <div class="image">
+            <img src="{% static '/images/scrapping.jpg' %}" alt="Object situation Awarness">
+        </div>
+		</div>
+
+    <div class="container">
+        <div class="text">
+            <div class="project-title">Agent-Based Simulation of Langtons-ants phenomenon Using NetLogo: Analyzing Complex System Dynamics"ng</div>
+            <div class="project-details">The primary goal of this project was to simulate and analyze a specific phenomenon using the NetLogo platform. The model aims to explore the dynamics and interactions of agents under specified conditions, providing insights into complex systems or behaviors..</div>
+            <div class="project-details"><strong>Programming Language</strong>: NetLogo </div>
+			<div class="project-details"><strong>Analysis tools </strong>: BehaviorSpace: A tool within NetLogo used for running experiments with models, collecting data, and analyzing results.</div>
+            <div class="project-details"><strong>Techniques</strong>: Agent-Based Modeling (ABM), Parameter Tuning, Data Collection and Analysis </div>
+            <div class="project-details"><strong>Year</strong>: May 2021</div>
+			<a href="https://github.com/youssefbaz/Langtons-ants" target="_blank">
+				<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
+			</a>
+
+        </div>
+        <div class="image">
+            <img src="{% static '/images/ants.jpg' %}" alt="cancer_detection">
+        </div>
+    </div>
+	    <div class="container">
+        <div class="text">
+            <div class="project-title">Building Personal Portfolio Website</div>
+            <div class="project-details">The main goal of this project was to create a personal portfolio website using Django to showcase my professional journey, skills, projects, and achievements in data science and coding.</div>
+            <div class="project-details"><strong>Programming Language</strong>: Python, HTML, CSS, Javascript </div>
+			<div class="project-details"><strong>Techniques</strong>: Django, Bootstrap, SQlite</div>
+            <div class="project-details"><strong>Year</strong>: July 2024</div>
+			<a href="https://github.com/youssefbaz/Portfolio" target="_blank">
+				<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
+			</a>
+
+        </div>
+        <div class="image">
+            <img src="{% static '/images/portfolio.jpg' %}" alt="cancer_detection">
+        </div>
+    </div>
+
+
+
+
+		</div>
+
+	</body>
+
+{% endblock %}

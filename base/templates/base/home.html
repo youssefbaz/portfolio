@@ -1,0 +1,468 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+
+    <section id="home-section" class="hero">
+      <div class="home-slider  owl-carousel">
+        <div class="slider-item ">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+				<div class="one-third js-fullheight order-md-last img" style="background-image: url({% static 'images/youssef.png' %}); background-size: 300px 300px; background-position: center; background-repeat: no-repeat; border-radius: 50%; overflow: hidden;">
+         <div class="overlay"></div>
+              </div>
+              <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="text">
+                  <h1 class="mb-4 mt-3"><span>Youssef</span><br>Data Scientist</h1>
+                  <p><a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+				  <li class="ftco-animate"><a href="https://www.linkedin.com/in/youssef-bazzaoui/"><span class="icon-linkedin"></span></a></li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-md-6 col-lg-5 d-flex">
+            <div class="img-about img d-flex align-items-stretch">
+              <div class="overlay"></div>
+
+			  <div class="img d-flex align-self-stretch align-items-center" style="background-image: url({% static 'images/ys.jpeg' %});">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+            <div class="row justify-content-start pb-3">
+              <div class="col-md-12 heading-section ftco-animate">
+                <h1 class="big">About</h1>
+                <h2 class="mb-4">About Me</h2>
+                <p>I love diving into data and creating models, but when I'm not doing that, you’ll find me on the football field trying to dribble like Messi or immersed in a video games. When I'm not nerding out over data, I’m exploring new places and adding new destinations to my travel map. Having lived in France, Luxembourg, and Morocco, I’ve picked up Arabic, English, French, and a dash of Spanish along the way. My diverse adventures have given me plenty of stories to share, whether I’m kicking a ball on the football field, exploring a new travel destination, or conquering a new level in a video game.</p>
+                <ul class="about-info mt-4 px-md-0 px-2">
+                  <li class="d-flex"><span>Name:</span> <span>Youssef Bazzaoui</span></li>
+                  <li class="d-flex"><span>Date of birth:</span> <span>May 16, 1994</span></li>
+                  <li class="d-flex"><span>Address:</span> <span>Flandre Avenue</span></li>
+                  <li class="d-flex"><span>Zip code:</span> <span>75019</span></li>
+                  <li class="d-flex"><span>Email:</span> <span>bazzaoui.youssef@gmail.com</span></li>
+                  <li class="d-flex"><span>Phone: </span> <span>+33-6-95-75-95-59</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="counter-wrap ftco-animate d-flex mt-md-3">
+              <div class="text">
+                <p class="mb-4">
+                  <span class="number" data-number="20">0</span>
+                  <span>Project complete</span>
+                </p>
+                <p><a href="{% static 'pdf/Youssef_CV .pdf' %}" class="btn btn-primary py-3 px-3" download>Download CV</a></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pb" id="resume-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Resume</h1>
+            <h2 class="mb-4">Resume</h2>
+            <p>This section of my portfolio showcases my professional journey, educational background, skills, and interests, providing a comprehensive overview of my qualifications and passion for data science.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2021-2023</span>
+              <h2>Applied MSc in Data Science and Artificial Intelligence,</h2>
+              <span class="position">Data Science Tech Institute</span>
+              <p class="mt-4">Paris, FRANCE </p>
+            </div>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2018-2020</span>
+              <h2>Master’s Degree in Computer Sciences Major in Artificial Intelligence</h2>
+              <span class="position">University of Luxembourg</span>
+              <p class="mt-4">Luxembourg</p>
+            </div>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2013-2017</span>
+              <h2>Bachelor In Mathematics and Computer Sciences Applied to
+				Humanities and Social Sciences (MIAGE),</h2>
+              <span class="position">Université Paris Nanterre</span>
+              <p class="mt-4">Paris, FRANCE </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="resume-wrap ftco-animate">
+              <span class="date">6 months</span>
+              <h2>Data Scientist/Analyst Internship</h2>
+              <span class="position">Eurobank Private Bank Luxembourg, Luxembourg</span>
+              <p class="mt-4">•The use of machine learning techniques to build predictive models for
+					the volume of transactions by category (Foreign Exchanges, Securities
+					Trade, Loan and Deposit )</p><p class="mt-4">
+					•Creation of SSIS packages to load data from the core banking system to
+					the datawarehouse</p>
+					•Creating reports by utilizing data extracted from the data warehouse to
+					meet business requirements.<p class="mt-4">
+					•Consolidation of data across various reports.</p>
+            </div>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">4 months </span>
+              <h2>Web Developer Internship</h2>
+              <span class="position">Université Paris Nanterre, France</span>
+              <p class="mt-4" >•Designing an application- with Django- to search for city names using
+					the Levenshtein algorithm, and display them on a map with their
+					coordinates</p>
+					•School administration application for grade management and academic
+					reports generation (PHP and MySQL).</p>
+            </div>
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2 months</span>
+              <h2>web Developer Internship</h2>
+              <span class="position">Plati, Morocco </span>
+              <p class="mt-4">•Contributing to the design and implementation of a computer-aided
+				maintenance management system.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-6 text-center ftco-animate">
+            <p><a href="{% static 'pdf/Youssef_CV .pdf' %}" class="btn btn-primary py-4 px-5">Download CV</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section" id="services-section">
+      <div class="container">
+        <div class="row justify-content-center py-5 mt-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Services</h1>
+            <h2 class="mb-4">Area of Interests</h2>
+            <p>Here are some of my favorite areas to work on </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-center d-flex ftco-animate">
+            <a href="#" class="services-1">
+              <span class="icon">
+                <i class="flaticon-analysis"></i>
+              </span>
+              <div class="desc">
+                <h3 class="mb-5">Statistical Analysis</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 text-center d-flex ftco-animate">
+            <a href="#" class="services-1">
+              <span class="icon">
+                <i class="flaticon-flasks"></i>
+              </span>
+              <div class="desc">
+                <h3 class="mb-5">Machine Learning </h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 text-center d-flex ftco-animate">
+            <a href="#" class="services-1">
+              <span class="icon">
+                <i class="flaticon-ideas"></i>
+              </span>
+              <div class="desc">
+                <h3 class="mb-5">Time Series Analysis</h3>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4 text-center d-flex ftco-animate">
+            <a href="#" class="services-1">
+              <span class="icon">
+                <i class="flaticon-analysis"></i>
+              </span>
+              <div class="desc">
+                <h3 class="mb-5">Data Visualization</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 text-center d-flex ftco-animate">
+            <a href="#" class="services-1">
+              <span class="icon">
+                <i class="flaticon-flasks"></i>
+              </span>
+
+              <div class="desc">
+                <h3 class="mb-5">Computer Vision</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 text-center d-flex ftco-animate">
+            <a href="#" class="services-1">
+              <span class="icon">
+                <i class="flaticon-ideas"></i>
+              </span>
+              <div class="desc">
+                <h3 class="mb-5">Natural Language Processing (NLP)</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="ftco-section" id="skills-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Skills</h1>
+            <h2 class="mb-4">My Skills</h2>
+            <p>This section of my portfolio outlines my technical skills and proficiencies, demonstrating my expertise in programming, data analysis, machine learning, and data visualization tools.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3>Python</h3>
+              <div class="progress">
+                <div class="progress-bar color-1" role="progressbar" aria-valuenow="90"
+                  aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                  <span>95%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3>SQL</h3>
+              <div class="progress">
+                <div class="progress-bar color-2" role="progressbar" aria-valuenow="85"
+                  aria-valuemin="0" aria-valuemax="100" style="width:85%">
+                  <span>85%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3>R</h3>
+              <div class="progress">
+                <div class="progress-bar color-3" role="progressbar" aria-valuenow="95"
+                  aria-valuemin="0" aria-valuemax="100" style="width:95%">
+                  <span>75%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3>Machine Learning</h3>
+              <div class="progress">
+                <div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
+                  aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                  <span>90%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3>Power Bi</h3>
+              <div class="progress">
+                <div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
+                  aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                  <span>70%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 animate-box">
+            <div class="progress-wrap ftco-animate">
+              <h3>Django</h3>
+              <div class="progress">
+                <div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
+                  aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                  <span>85%</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="ftco-section ftco-project" id="projects-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-4">My Projects</h2>
+            <p>This section of my portfolio highlights my diverse projects, demonstrating my expertise in data science, machine learning, and programming, and showcasing my ability to apply theoretical knowledge to real-world problems.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+			<a href="/ds_project.html" style="text-decoration: none; color: inherit;">
+				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static '/images/ds.png' %});">
+             <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="/ds_project.html">Data Science </a></h3>
+				<h3><a href="/ds_project.html"> Projects </a></h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+			<a href="/code_project.html" style="text-decoration: none; color: inherit;">
+            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static '/images/coding.jpg' %});">
+              <div class="overlay"></div>
+              <div class="text text-center p-4">
+                <h3><a href="/code_project.html">Coding </a></h3>
+				<h3><a href="/code_project.html"> Projects </a></h3>
+              </div>
+            </div>
+          </div>
+
+
+    </section>
+
+
+    <section class="ftco-section" id="blog-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Blog</h1>
+            <h2 class="mb-4"> Blog Posts</h2>
+
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+				<div class="image" style="display: flex; justify-content: flex-start;">
+				  <a href="/blog.html">
+					<img src="{% static '/images/blog.jpg' %}" alt="Blog Image" style="width: 200px; height: auto; cursor: pointer;">
+				  </a>
+				</div>
+
+              <div class="text mt-3 float-right d-block">
+                <div class="d-flex align-items-center mb-3 meta">
+                  <p class="mb-0">
+                    <span class="mr-2">August 4, 2024</span>
+                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+                  </p>
+                </div>
+                <h3 class="heading"><a href="/blog.html">From Struggles to Success: My Journey into Data Science </a></h3>
+                <p>My first blog shares my journey from struggling with scientific subjects to finding a passion for math and coding, ultimately leading to my career in data science.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+      <div class="container">
+        <div class="row d-md-flex align-items-center">
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="3">0</strong>
+                <span>Certificates</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="20">0</strong>
+                <span>Complete Projects</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 ftco-animate text-center">
+            <h2>Available for freelancing</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+          </div>
+        </div>
+
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <li class="ftco-animate"><a href="https://www.linkedin.com/in/youssef-bazzaoui/"><span class="icon-linkedin"></span></a></li>
+              </div>
+              <h3 class="mb-4">Linkedin</h3>
+
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <span class="icon-phone2"></span>
+              </div>
+              <h3 class="mb-4">Contact Number</h3>
+              <p><a href="tel://1234567920">+ 33695759559 </a></p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <span class="icon-paper-plane"></span>
+              </div>
+              <h3 class="mb-4">Email Address</h3>
+              <p><a href="bazzaoui.youssef@gmail.com">bazzaoui.youssef@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+            <div class="align-self-stretch box p-4 text-center">
+              <div class="icon d-flex align-items-center justify-content-center">
+                <span class="icon-globe"></span>
+              </div>
+              <h3 class="mb-4">Website</h3>
+              <p><a href="#">youssefbazz10.pythonanywhere.com/</a></p>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-md-6 d-flex">
+            <div class="img" style="background-image: url(images/about.jpg);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
