@@ -114,7 +114,7 @@
                         </ul>
                         <p>Depending on whether you scale or not, PCA works on either the covariance matrix or the correlation matrix.</p>
 
-                        <p><strong>Step 2: Finding the Best Axes (Eigenvectors!)</strong></p>
+                        <p><strong><div class="project-title1">Step 2: Finding the Best Axes (Eigenvectors!)</div></strong></p>
                         <p>This is where the math kicks in, but stay with me. We’re looking for a direction \( \mathbf{u} \) (a vector) such that the projection of our data \( \mathbf{X} \) onto \( \mathbf{u} \) has the maximum possible variance.</p>
 
                         <p>That leads to this optimization problem:</p>
@@ -133,14 +133,14 @@
                             <li>The eigenvalues (\( \lambda \)) tell us how much variance is explained by each axis.</li>
                         </ul>
 
-                        <p><strong>Step 3: Keeping the Important Stuff (Variance Explained)</strong></p>
+                        <p><strong><div class="project-title1">Step 3: Keeping the Important Stuff (Variance Explained)</div></strong></p>
                         <p>Each eigenvalue tells us how much of the total variance is captured by its corresponding axis. We usually rank them and look at how much total variance is explained by the first few components.</p>
 
                         <p>You’ve probably seen a scree plot: it shows the eigenvalues in decreasing order. When the plot flattens out (the "elbow"), that’s usually where we stop.</p>
 
                         <p>A common rule: Keep enough components to explain at least 70% of the total variance.</p>
 
-                        <p><strong>Step 4: Projection and Interpretation</strong></p>
+                        <p><strong><div class="project-title1">Step 4: Projection and Interpretation</div></strong></p>
                         <p>Once we’ve selected our axes, we project the data onto them. Each individual (row of your data) gets new coordinates in this reduced space. These are the principal components.</p>
                         <ul>
                             <li>If two individuals are close in this space, they are similar across the original variables.</li>
