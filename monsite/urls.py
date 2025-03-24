@@ -27,5 +27,6 @@ urlpatterns = [
     path('ds_project.html',views.ds_project, name='ds_project'),
     path('code_project.html',views.code_project, name='code_project'),
     path('blog.html',views.blog, name='blog'),
+    path('blog1.html',views.blog1, name='blog1'),
     path('layout.html', views.layout),
 ]# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,170 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Science Projects</title>
+        <style>
+            body {
+                background-color: #000; /* Black background */
+                color: #fff; /* White text */
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                text-align: center; /* Centering the content */
+            }
+
+            .content-wrapper {
+                display: inline-block;
+                text-align: left; /* Ensures text alignment inside the box */
+                max-width: 1200px; /* Maximum width for content */
+                width: 100%;
+                margin: 50px auto; /* Centering the content and adding top margin */
+                margin-top: 200px; /* Space between navbar and content */
+            }
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #555; /* Grey line for separation */
+                padding-bottom: 20px;
+            }
+
+            .text {
+                width: 60%;
+            }
+
+            .image {
+                width: 35%;
+            }
+
+            .image img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .project-title {
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffc107;
+            }
+            .project-title1 {
+                font-size: 24px;
+                
+                color: #ffc107;
+            }
+
+
+            .project-publish {
+                font-size: 17px;
+                font-weight: bold;
+            }
+
+            .project-details {
+                margin: 10px 0;
+            }
+        </style>
+
+        <!-- MathJax script for rendering LaTeX formulas beautifully -->
+        <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+    </head>
+
+    <body>
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="text">
+                    <div class="project-title">PCA Without Panic: A Gentle Introduction to Principal Component Analysis</div>
+                    <div class="project-publish">Published 24th March 2025</div>
+                    <div class="project-details">
+                        <p>If you've ever looked at a dataset and thought, "There’s too much going on here," you're not alone. Principal Component Analysis (PCA) is a powerful tool for simplifying data without losing its essence. But while the math behind PCA can seem intimidating, the idea is beautifully intuitive. In this post, we’ll unpack PCA step by step—conceptually, geometrically, and mathematically—without the jargon overload.</p>
+
+                        <p><strong><div class="project-title1"> Why Use PCA in the First Place?</div></strong></p>
+                        <p>Imagine you’re looking at customer reviews for 50 different brands. Each brand is described by 10 different satisfaction scores. That’s already 10 dimensions—and we haven’t even started analyzing.</p>
+
+                        <p>Now imagine trying to plot that. Impossible, right?</p>
+
+                        <p>PCA helps by projecting your high-dimensional data into a smaller space (usually 2D or 3D), keeping as much variation as possible. Think of it like a photographer trying to find the best angle to capture a complex 3D object in a flat photo. Some angles tell you more than others. PCA finds those angles.</p>
+
+                        <p><strong>What PCA Actually Does</strong></p>
+                        <p>At its core, PCA is about:</p>
+                        <ul>
+                            <li>Finding the directions (called principal components) where the data varies the most.</li>
+                            <li>Projecting your data onto those directions to reduce the number of dimensions.</li>
+                        </ul>
+                        <p>These new directions are computed so that:</p>
+                        <ul>
+                            <li>The first axis captures the most variance possible.</li>
+                            <li>The second captures the most remaining variance, while being orthogonal to the first.</li>
+                            <li>And so on.</li>
+                        </ul>
+                        <p>In the end, you're left with new features (called components) that are uncorrelated and ordered by how much variance they explain.</p>
+
+                        <p><strong><div class="project-title1">Step 1: Centering and (Sometimes) Scaling</div></strong></p>
+                        <p>Before diving into axes and eigenvectors, there’s some housekeeping to do:</p>
+                        <ul>
+                            <li><strong>Centering</strong>: We subtract the mean from each variable. This recenters the cloud of data around the origin.</li>
+                            <li><strong>Scaling (standardization)</strong>: If variables are on different scales (say, revenue in euros vs. ratings out of 5), we scale them to have unit variance. This avoids one variable dominating the analysis just because of its units.</li>
+                        </ul>
+                        <p>Depending on whether you scale or not, PCA works on either the covariance matrix or the correlation matrix.</p>
+
+                        <p><strong>Step 2: Finding the Best Axes (Eigenvectors!)</strong></p>
+                        <p>This is where the math kicks in, but stay with me. We’re looking for a direction \( \mathbf{u} \) (a vector) such that the projection of our data \( \mathbf{X} \) onto \( \mathbf{u} \) has the maximum possible variance.</p>
+
+                        <p>That leads to this optimization problem:</p>
+                        <p>\[
+                        \text{max}_{\mathbf{u}}  \mathbf{u}^T S \mathbf{u}  \quad \text{subject to} \quad \|\mathbf{u}\| = 1
+                        \]</p>
+                        <p>Where \( S \) is the covariance (or correlation) matrix.</p>
+
+                        <p>Solving this leads us to an eigenvalue problem:</p>
+                        <p>\[
+                        S \mathbf{u} = \lambda \mathbf{u}
+                        \]</p>
+                        <p>Which tells us:</p>
+                        <ul>
+                            <li>The eigenvectors (\( \mathbf{u} \)) are the directions of the new axes.</li>
+                            <li>The eigenvalues (\( \lambda \)) tell us how much variance is explained by each axis.</li>
+                        </ul>
+
+                        <p><strong>Step 3: Keeping the Important Stuff (Variance Explained)</strong></p>
+                        <p>Each eigenvalue tells us how much of the total variance is captured by its corresponding axis. We usually rank them and look at how much total variance is explained by the first few components.</p>
+
+                        <p>You’ve probably seen a scree plot: it shows the eigenvalues in decreasing order. When the plot flattens out (the "elbow"), that’s usually where we stop.</p>
+
+                        <p>A common rule: Keep enough components to explain at least 70% of the total variance.</p>
+
+                        <p><strong>Step 4: Projection and Interpretation</strong></p>
+                        <p>Once we’ve selected our axes, we project the data onto them. Each individual (row of your data) gets new coordinates in this reduced space. These are the principal components.</p>
+                        <ul>
+                            <li>If two individuals are close in this space, they are similar across the original variables.</li>
+                            <li>If an individual lies far from the origin, it means they deviate a lot from the average profile.</li>
+                        </ul>
+
+                        <p>We can also look at:</p>
+                        <ul>
+                            <li><strong>Contributions:</strong> How much each individual or variable influences each axis.</li>
+                            <li><strong>Cosine squared (cos²):</strong> A measure of how well an individual or variable is represented on a given axis.</li>
+                        </ul>
+
+                        <p><strong>Final Thoughts</strong></p>
+                        <p>PCA isn’t just math—it’s a lens. It gives you a better view of your data when things get crowded. Once you understand the geometry and optimization behind it, the rest falls into place.</p>
+
+                        <p>Whether you’re analyzing economic indicators, brand surveys, or student performance, PCA helps you reduce complexity without losing the big picture.</p>
+
+                        <p>Next time: We’ll walk through a real dataset with PCA in R or Python—code, plots, and interpretation included.</p>
+
+                        <p>Stay tuned!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+{% endblock %}

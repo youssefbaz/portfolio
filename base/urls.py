@@ -7,5 +7,6 @@ urlpatterns = [
     path('ds_project.html', views.ds_project),
     path('code_project.html', views.code_project),
     path('blog.html', views.blog),
+    path('blog1.html', views.blog1),
     path('layout.html', views.layout),
     ]

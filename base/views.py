@@ -12,5 +12,7 @@ def code_project(request):
         return render(request,'base/code_project.html')
 def blog(request):
         return render(request,'base/blog.html')
+def blog1(request):
+        return render(request,'base/blog1.html')
 def layout(request):
         return render(request,'base/layout.html')
