@@ -1,0 +1,86 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivation Letter Generator</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-wrapper {
+            display: inline-block;
+            text-align: left;
+            max-width: 1200px;
+            width: 100%;
+            margin: 50px auto;
+            margin-top: 200px;
+        }
+
+        .container {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 20px;
+        }
+
+        .text {
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        .project-details {
+            margin: 10px 0;
+        }
+
+        .video {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="text">
+                <div class="project-title">Motivation Letter Generator Using LLMs and LangChain</div>
+                <div class="project-details">
+                    This project is a Streamlit-based app that helps users automatically generate personalized motivation letters from their resumes.
+                    It uses advanced Large Language Models (LLMs), PDF parsing, and job scraping from APEC to create ready-to-send letters in PDF format.
+                </div>
+                <div class="project-details"><strong>Tools used</strong>: Python, LangChain, Streamlit, PyMuPDF, BeautifulSoup, Selenium</div>
+                <div class="project-details"><strong>Features</strong>: Resume analysis, LLM-based letter generation, job scraping, downloadable PDFs</div>
+                <div class="project-details"><strong>Year</strong>: Apr 2025</div>
+                <a href="https://github.com/yourusername/motivation-letter-generator" target="_blank">
+                    <img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
+                </a>
+            </div>
+            <div class="video">
+                <video controls>
+                    <source src="{% static 'videos/motivation_demo.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
