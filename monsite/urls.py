@@ -26,7 +26,7 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('ds_project.html',views.ds_project, name='ds_project'),
     path('code_project.html',views.code_project, name='code_project'),
-    path('genai_project.html',views.code_project, name='genai_project'),
+    path('genai_project.html',views.genai_project, name='genai_project'),
     path('blog.html',views.blog, name='blog'),
     path('blog1.html',views.blog1, name='blog1'),
     path('layout.html', views.layout),
