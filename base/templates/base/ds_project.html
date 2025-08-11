@@ -1,192 +1,101 @@
 {% extends 'base/layout.html' %}
 {% load static %}
-
-
 {% block content %}
+<section class="projects-section" id="projects">
+  <div class="container">
+    <header class="projects-header">
+      <h2 class="mb-2">Data Science Projects</h2>
+      <p class="text-muted">A curated selection of my recent work. Clean code, clear results.</p>
+    </header>
 
-	<head>
+    <div class="projects-grid">
 
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> Data Science Projects </title>
-		<style>
-			body {
-				background-color: #000; /* Black background */
-				color: #fff; /* White text */
-				font-family: Arial, sans-serif;
-				margin: 0;
-				padding: 20px;
-				text-align: center; /* Centering the content */
-			}
-
-			.content-wrapper {
-				display: inline-block;
-				text-align: left; /* Ensures text alignment inside the box */
-				max-width: 1200px; /* Maximum width for content */
-				width: 100%;
-				margin: 50px auto; /* Centering the content and adding top margin */
-				margin-top: 200px; /* Ajoute un espace entre la barre de navigation et le contenu */
-			}
-
-			.container {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-bottom: 20px;
-				border-bottom: 1px solid #555; /* Grey line for separation */
-				padding-bottom: 20px;
-			}
-
-			.text {
-				width: 60%;
-			}
-
-			.image {
-				width: 35%;
-			}
-
-			.image img {
-				max-width: 100%;
-				height: auto;
-			}
-
-			.project-title {
-				font-size: 24px;
-				font-weight: bold;
-				color: #ffc107 ;
-			}
-
-			.project-details {
-				margin: 10px 0;
-			}
-		</style>
-	</head>
-
-	<body>
-
-		<div class="content-wrapper">
-		<div class="container">
-			<div class="text">
-				<div class="project-title">Machine Learning-Based Object Situation Awareness Using a Monocular Camera For Autonomous Navigation of Multirotor Aerial Robots in Populated Areas</div>
-				<div class="project-details">The goal of this project, undertaken as part of my Master's studies, was to develop a machine learning-based system for situation awareness in autonomous multirotor aerial robots using monocular cameras. The project aimed to detect and localize objects, estimate depth, and enable safe navigation in populated areas. The focus was on utilizing minimal equipment to create a cost-effective solution suitable for applications like logistics and emergency response..</div>
-				<div class="project-details"><strong>Tools used</strong>: Python, OpenCV, TensorFlow, Keras, NumPy, Matplotlib, PyTorch</div>
-				<div class="project-details"><strong>Techniques</strong>: Object Detection (YOLO, Mask R-CNN), Image Segmentation, Depth Estimation (Monodepth, Monodepth2), 3D Mapping (Octree, Octomap)</div>
-				<div class="project-details"><strong>Platforms</strong>: Jupyter Notebook, Meshlab, ROS, Gazebo</div>
-				<div class="project-details"><strong>Year</strong>: Apr 2020</div>
-				<a href="https://github.com/youssefbaz/MasterThes" target="_blank">
-					<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-				</a>
-
-			</div>
-        <div class="image">
-            <img src="{% static '/images/drone_awarness.jpg' %}" alt="Object situation Awarness">
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/drone_awarness.jpg' %}" alt="Object Situation Awareness for Drones">
         </div>
-		</div>
-	<div class="container">
-		<div class="text">
-				<div class="project-title"> House Predictions Price </div>
-				<div class="project-details">The objective of this project was to perform an extensive exploratory data analysis (EDA) to uncover patterns and insights that could help in predicting house prices. A linear regression model was developed and evaluated to predict house prices based on various housing features. </div>
-				<div class="project-details"><strong>Programming Language</strong>: Python</div>
-				<div class="project-details"><strong>Libraries</strong>: Pandas, NumPy, Scikit-learn, Matplotlib</div>
-				<div class="project-details"><strong>Techniques</strong>: Exploratory Data Analysis (EDA), Feature Engineering, Machine Learning, Linear Regression</div>
-				<div class="project-details"><strong>Platforms</strong>: Jupyter Notebook</div>
-				<div class="project-details"><strong>Year</strong>: August 2024</div>
-				<a href="https://github.com/youssefbaz/House_Predictions" target="_blank">
-					<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-				</a>
-
-
-			</div>
-			<div class="image">
-				<img src="{% static '/images/houses.jpg' %}" alt="Houses_Predictsions">
-			</div>
-		</div>
-
-    <div class="container">
-        <div class="text">
-            <div class="project-title">Breast Cancer Detection Using Machine Learning</div>
-            <div class="project-details">The aim of this project was to develop a machine learning model to classify breast cancer as benign or malignant using patient data. This involved utilizing machine learning techniques to analyze medical data, aiming to improve diagnostic accuracy and aid in early detection.</div>
-            <div class="project-details"><strong>Programming Language</strong>: Python </div>
-			<div class="project-details"><strong>Libraries</strong>: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</div>
-            <div class="project-details"><strong>Techniques</strong>:Data Preprocessing, Classification Models (Logistic Regression, Decision Trees, SVM), Cross-Validation, Hyperparameter Tuning</div>
-			<div class="project-details"><strong>Platforms</strong>: Jupyter Notebook</div>
-            <div class="project-details"><strong>Year</strong>: May 2023</div>
-			<a href="https://github.com/youssefbaz/BreastCancer" target="_blank">
-				<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-			</a>
-
+        <div class="project-body">
+          <h3 class="project-title">Object Situation Awareness for Autonomous Drones</h3>
+          <p class="project-desc">Perception stack for safe navigation: detection, monocular depth, 3D mapping, obstacle avoidance.</p>
+          <div class="project-tags">
+            <span class="tag">Computer Vision</span><span class="tag">Depth</span>
+            <span class="tag">3D Mapping</span><span class="tag">TensorFlow</span>
+            <span class="tag">PyTorch</span><span class="tag">OpenCV</span>
+          </div>
         </div>
-        <div class="image">
-            <img src="{% static '/images/breast_cancer.jpg' %}" alt="cancer_detection">
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz/MasterThes" target="_blank">GitHub</a>
+          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">Apr 2020</span>
         </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/breast_cancer.jpg' %}" alt="Breast Cancer Detection">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Breast Cancer Detection</h3>
+          <p class="project-desc">Classical ML with feature engineering, cross-validation and tuning for diagnostic support.</p>
+          <div class="project-tags">
+            <span class="tag">Scikit-learn</span><span class="tag">EDA</span>
+            <span class="tag">SVM</span><span class="tag">Tree/Ensemble</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz/BreastCancer" target="_blank">GitHub</a>
+          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">May 2023</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/time_series.jpg' %}" alt="Electricity Consumption Forecasting">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Electricity Consumption Forecasting</h3>
+          <p class="project-desc">Time-series modeling for short-term power demand to inform planning.</p>
+          <div class="project-tags">
+            <span class="tag">Time Series</span><span class="tag">Forecasting</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/houses.jpg' %}" alt="House Price Prediction">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">House Price Prediction</h3>
+          <p class="project-desc">Feature engineering and regression to estimate real-estate prices.</p>
+          <div class="project-tags">
+            <span class="tag">Regression</span><span class="tag">Feature Eng</span><span class="tag">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/diabetes.jpg' %}" alt="Diabetes Classification">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Diabetes Classification</h3>
+          <p class="project-desc">Predictive modeling with model comparison and solid evaluation metrics.</p>
+          <div class="project-tags">
+            <span class="tag">Classification</span><span class="tag">Metrics</span><span class="tag">Scikit-learn</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+        </div>
+      </div>
+
     </div>
-
-	    <div class="container">
-			<div class="text">
-				<div class="project-title">Forecasting Electricity Consumption Using Time Series Analysis</div>
-				<div class="project-details">The primary goal of this project was to forecast electricity consumption using time series analysis. This involved analyzing historical data on electricity usage and outdoor air temperature for a specific building. The project aimed to create predictive models that can accurately estimate future electricity consumption, which is essential for efficient energy management and planning.</div>
-				<div class="project-details"><strong>Programming Language</strong>: R  </div>
-				<div class="project-details"><strong>Libraries</strong>: forecast, tseries, ggplot2</div>
-				<div class="project-details"><strong>Techniques</strong>:Time Series Analysis, ARIMA Models, Seasonal Decomposition, Exponential Smoothing</div>
-				<div class="project-details"><strong>Platforms</strong>: RStudio</div>
-				<div class="project-details"><strong>Year</strong>: May 2023</div>
-				<a href="https://github.com/youssefbaz/PredictingElectricityConsumption-" target="_blank">
-					<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-				</a>
-
-
-			</div>
-			<div class="image">
-				<img src="{% static '/images/energy_cosumption.jpg' %}" alt="energy_consumption">
-			</div>
-		</div>
-
-
-
-		<div class="container">
-			<div class="text">
-				<div class="project-title">Classification Physhing URLs </div>
-				<div class="project-details">The goal was to build an efficient and accurate classifier that can help prevent phishing attacks by flagging suspicious URLs. This involved extracting relevant features from URLs and training a machine learning model to distinguish between phishing and legitimate URLs</div>
-				<div class="project-details"><strong>Programming Language</strong>: Python</div>
-				<div class="project-details"><strong>Libraries</strong>: Pandas, NumPy, Scikit-learn, Seaborn, LazyPredict</div>
-				<div class="project-details"><strong>Techniques</strong>: Data Preprocessing, Exploratory Data Analysis (EDA), Feature Engineering</div>
-				<div class="project-details"><strong>Platforms</strong>: Jupyter Notebook</div>
-				<div class="project-details"><strong>Year</strong>: July 2024</div>
-
-				<a href="https://github.com/youssefbaz/Url_Classification" target="_blank">
-					<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-				</a>
-
-
-			</div>
-			<div class="image">
-				<img src="{% static '/images/urls.jpg' %}" alt="classification_urls">
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="text">
-				<div class="project-title"> Diabetes Analysis </div>
-				<div class="project-details">The objective of this project was to perform an extensive exploratory data analysis (EDA) to uncover patterns and insights that could help in predicting diabetes. </div>
-				<div class="project-details"><strong>Programming Language</strong>: Python</div>
-				<div class="project-details"><strong>Libraries</strong>: Pandas, NumPy, Scikit-learn, Nltk</div>
-				<div class="project-details"><strong>Techniques</strong>: Natural Language Processing (NLP), Feature Engineering, Machine Learning, Gradient Boosting (XGBoost)</div>
-				<div class="project-details"><strong>Platforms</strong>: Jupyter Notebook</div>
-				<div class="project-details"><strong>Year</strong>: July 2023</div>
-				<a href="https://github.com/youssefbaz/PredictingElectricityConsumption-" target="_blank">
-					<img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-				</a>
-
-
-			</div>
-			<div class="image">
-				<img src="{% static '/images/diabetes.jpg' %}" alt="classification_diabetes">
-			</div>
-		</div>
-
-
-		</div>
-
-	</body>
-
+  </div>
+</section>
 {% endblock %}

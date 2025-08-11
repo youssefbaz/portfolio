@@ -6,7 +6,7 @@
   <head>
     <title>Youssef _ Portfolio </title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
@@ -118,7 +118,7 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <h2 class="ftco-heading-2">Have a Question?</h2>
               <div class="block-23 mb-3">
                 <ul>
                    <li><a href="#"><span class="icon icon-phone"></span><span class="text"> +33 6 95 75 95 59<span></a></li>
@@ -165,7 +165,20 @@
   
   <script src="{%static 'js/main.js' %}"></script>
     
-  </body>
+  
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.querySelector('.site-navbar-target');
+      if(btn && nav){
+        btn.addEventListener('click', function(){
+          nav.classList.toggle('open');
+        });
+      }
+    });
+    </script>
+    
+</body>
 </html>
 
 

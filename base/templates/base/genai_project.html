@@ -1,86 +1,49 @@
 {% extends 'base/layout.html' %}
 {% load static %}
-
 {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motivation Letter Generator</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
+<section class="projects-section" id="projects">
+  <div class="container">
+    <header class="projects-header">
+      <h2 class="mb-2">Coding Projects</h2>
+      <p class="text-muted">Utilities, automation, and the plumbing behind data work.</p>
+    </header>
 
-        .content-wrapper {
-            display: inline-block;
-            text-align: left;
-            max-width: 1200px;
-            width: 100%;
-            margin: 50px auto;
-            margin-top: 200px;
-        }
+    <div class="projects-grid">
 
-        .container {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #555;
-            padding-bottom: 20px;
-        }
-
-        .text {
-            margin-bottom: 20px;
-        }
-
-        .project-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffc107;
-        }
-
-        .project-details {
-            margin: 10px 0;
-        }
-
-        .video {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        video {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="content-wrapper">
-        <div class="container">
-            <div class="text">
-                <div class="project-title">Motivation Letter Generator Using LLMs and LangChain</div>
-                <div class="project-details">
-                    This project is a Streamlit-based app that helps users automatically generate personalized motivation letters from their resumes.
-                    It uses advanced Large Language Models (LLMs), PDF parsing, and job scraping from APEC to create ready-to-send letters in PDF format.
-                </div>
-                <div class="project-details"><strong>Tools used</strong>: Python, LangChain, Streamlit, PyMuPDF, BeautifulSoup, Selenium</div>
-                <div class="project-details"><strong>Features</strong>: Resume analysis, LLM-based letter generation, job scraping, downloadable PDFs</div>
-                <div class="project-details"><strong>Year</strong>: Apr 2025</div>
-                <a href="https://github.com/youssefbaz/Autoapply" target="_blank">
-                    <img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-                </a>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="{% static 'videos/motivation_demo.mp4' %}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/scrapping.jpg' %}" alt="Job Web Scraper">
         </div>
+        <div class="project-body">
+          <h3 class="project-title">Job Listings Web Scraper</h3>
+          <p class="project-desc">Automates extraction of job posts with Selenium; cleans and exports for analysis.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Pandas</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz/job-scraper" target="_blank">GitHub</a>
+          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">Apr 2021</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/portfolio.jpg' %}" alt="Portfolio Website">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Personal Portfolio (Django)</h3>
+          <p class="project-desc">This site: Django + Bootstrap, responsive design, and streamlined projects layout.</p>
+          <div class="project-tags">
+            <span class="tag">Django</span><span class="tag">Bootstrap</span><span class="tag">Responsive</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+        </div>
+      </div>
+
     </div>
-</body>
+  </div>
+</section>
 {% endblock %}

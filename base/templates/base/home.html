@@ -48,7 +48,7 @@
               <div class="col-md-12 heading-section ftco-animate">
                 <h1 class="big">About</h1>
                 <h2 class="mb-4">About Me</h2>
-                <p>I love diving into data and creating models, but when I'm not doing that, you’ll find me on the football field trying to dribble like Messi or immersed in a video games. When I'm not nerding out over data, I’m exploring new places and adding new destinations to my travel map. Having lived in France, Luxembourg, and Morocco, I’ve picked up Arabic, English, French, and a dash of Spanish along the way. My diverse adventures have given me plenty of stories to share, whether I’m kicking a ball on the football field, exploring a new travel destination, or conquering a new level in a video game.</p>
+                <p>I love diving into data and creating models, but when I'm not doing that, you’ll find me on the football field trying to dribble like Messi or immersed in video games. When I'm not nerding out over data, I’m exploring new places and adding new destinations to my travel map. Having lived in France, Luxembourg, and Morocco, I’ve picked up Arabic, English, French, and a dash of Spanish along the way. My diverse adventures have given me plenty of stories to share, whether I’m kicking a ball on the football field, exploring a new travel destination, or conquering a new level in a video game.</p>
                 <ul class="about-info mt-4 px-md-0 px-2">
                   <li class="d-flex"><span>Name:</span> <span>Youssef Bazzaoui</span></li>
                   <li class="d-flex"><span>Date of birth:</span> <span>May 16, 1994</span></li>
@@ -63,7 +63,74 @@
         </div>
       </div>
     </section>
+    <!-- Featured Projects -->
+<section class="projects-section" id="featured-projects">
+  <div class="container">
+    <header class="projects-header">
+      <h2 class="mb-2">Featured Projects</h2>
+      <p class="text-muted">Selected highlights. See all projects in the sections below.</p>
+    </header>
 
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/drone_awarness.jpg' %}" alt="Object Situation Awareness">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Object Situation Awareness for Drones</h3>
+          <p class="project-desc">CV pipeline for safe navigation: detection, depth, mapping.</p>
+          <div class="project-tags">
+            <span class="tag">Computer Vision</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="/ds_project.html">View Details</a>
+          <a class="btn-ghost" href="https://github.com/youssefbaz/MasterThes" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/genai.jpg' %}" alt="Motivation Letter Generator">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Motivation Letter Generator</h3>
+          <p class="project-desc">LLM app to tailor letters to job posts with LangChain.</p>
+          <div class="project-tags">
+            <span class="tag">LLM</span><span class="tag">LangChain</span><span class="tag">Streamlit</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="/genai_project.html">View Details</a>
+          <a class="btn-ghost" href="https://github.com/youssefbaz/Autoapply" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
+          <img loading="lazy" src="{% static 'images/portfolio.jpg' %}" alt="Portfolio Website">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">Django + Bootstrap with a streamlined, mobile-first UI.</p>
+          <div class="project-tags">
+            <span class="tag">Django</span><span class="tag">Bootstrap</span><span class="tag">Responsive</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a class="btn-ghost" href="/code_project.html">View Details</a>
+          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-actions">
+      <a class="btn-ghost" href="/ds_project.html">All Data Science</a>
+      <a class="btn-ghost" href="/code_project.html">All Coding</a>
+      <a class="btn-ghost" href="/genai_project.html">All GenAI</a>
+    </div>
+  </div>
+</section>
     <section class="ftco-section ftco-no-pb" id="resume-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -83,13 +150,13 @@
             </div>
             <div class="resume-wrap ftco-animate">
               <span class="date">2018-2020</span>
-              <h2>Master’s Degree in Computer Sciences Major in Artificial Intelligence</h2>
+              <h2>Master’s Degree in Computer Science Major in Artificial Intelligence</h2>
               <span class="position">University of Luxembourg</span>
               <p class="mt-4">Luxembourg</p>
             </div>
             <div class="resume-wrap ftco-animate">
               <span class="date">2013-2017</span>
-              <h2>Bachelor In Mathematics and Computer Sciences Applied to
+              <h2>Bachelor in Mathematics and Computer Science Applied to
 				Humanities and Social Sciences (MIAGE),</h2>
               <span class="position">Université Paris Nanterre</span>
               <p class="mt-4">Paris, FRANCE </p>
@@ -109,7 +176,7 @@
               <span class="date">6 months</span>
               <h2>Data Scientist/Analyst Internship</h2>
               <span class="position">Eurobank Private Bank Luxembourg, Luxembourg</span>
-              <p class="mt-4">•The use of machine learning techniques to build predictive models for
+              <p class="mt-4">• Used machine learning techniques to build predictive models for
 					the volume of transactions by category (Foreign Exchanges, Securities
 					Trade, Loan and Deposit )</p><p class="mt-4">
 					•Creation of SSIS packages to load data from the core banking system to
@@ -151,7 +218,7 @@
         <div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
             <h1 class="big big-2">Services</h1>
-            <h2 class="mb-4">Area of Interests</h2>
+            <h2 class="mb-4">Areas of Interest</h2>
             <p>Here are some of my favorite areas to work on </p>
           </div>
         </div>
@@ -279,7 +346,7 @@
           </div>
           <div class="col-md-6 animate-box">
             <div class="progress-wrap ftco-animate">
-              <h3>Power Bi</h3>
+              <h3>Power BI</h3>
               <div class="progress">
                 <div class="progress-bar color-5" role="progressbar" aria-valuenow="75"
                   aria-valuemin="0" aria-valuemax="100" style="width:75%">
