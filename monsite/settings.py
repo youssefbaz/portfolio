@@ -37,7 +37,7 @@ if ENV == "prod":
     CSRF_TRUSTED_ORIGINS = ["https://youssef.bazzaoui.com"]
 else:
     # Local development: allow localhost + LAN IP (optional)
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost","192.168.11.117"]
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost","192.168.11.117","youssef.bazzaoui.com"]
     # Add your LAN IP below if testing on phone, e.g. 192.168.1.12
     LAN_IP = os.getenv("LAN_IP")
     if LAN_IP:
