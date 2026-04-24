@@ -2,85 +2,99 @@
 {% load static %}
 
 {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motivation Letter Generator</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+  .yb-genai-wrap {
+    background: #000;
+    color: #fff;
+    padding: 120px 20px 60px;
+    min-height: 100vh;
+  }
+  .yb-genai-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .yb-genai-item {
+    border-bottom: 1px solid #333;
+    padding: 40px 0;
+  }
+  .yb-genai-item:last-child { border-bottom: none; }
+  .yb-genai-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffc107;
+    margin-bottom: 16px;
+  }
+  .yb-genai-detail { margin: 8px 0; color: #eee; }
+  .yb-genai-detail strong { color: #ffc107; }
+  .yb-genai-video { margin-top: 20px; text-align: center; }
+  .yb-genai-video video { width: 100%; max-width: 800px; height: auto; }
+  .yb-genai-github img { width: 42px; height: 42px; }
+  .yb-genai-github { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; color: #fff !important; }
+  .yb-genai-github:hover { color: #ffc107 !important; }
+</style>
 
-        .content-wrapper {
-            display: inline-block;
-            text-align: left;
-            max-width: 1200px;
-            width: 100%;
-            margin: 50px auto;
-            margin-top: 200px;
-        }
+<div class="yb-genai-wrap">
+  <div class="yb-genai-inner">
 
-        .container {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #555;
-            padding-bottom: 20px;
-        }
-
-        .text {
-            margin-bottom: 20px;
-        }
-
-        .project-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffc107;
-        }
-
-        .project-details {
-            margin: 10px 0;
-        }
-
-        .video {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        video {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="content-wrapper">
-        <div class="container">
-            <div class="text">
-                <div class="project-title">Motivation Letter Generator Using LLMs and LangChain</div>
-                <div class="project-details">
-                    This project is a Streamlit-based app that helps users automatically generate personalized motivation letters from their resumes.
-                    It uses advanced Large Language Models (LLMs), PDF parsing, and job scraping from APEC to create ready-to-send letters in PDF format.
-                </div>
-                <div class="project-details"><strong>Tools used</strong>: Python, LangChain, Streamlit, PyMuPDF, BeautifulSoup, Selenium</div>
-                <div class="project-details"><strong>Features</strong>: Resume analysis, LLM-based letter generation, job scraping, downloadable PDFs</div>
-                <div class="project-details"><strong>Year</strong>: Apr 2025</div>
-                <a href="https://github.com/youssefbaz/Autoapply" target="_blank">
-                    <img src="{% static 'images/github-mark-white.png' %}" alt="GitHub" width="50" height="50" style="display: block; margin-left: auto; margin-right: 0;">
-                </a>
-            </div>
-            <div class="video">
-                <video controls>
-                    <source src="{% static 'videos/motivation_demo.mp4' %}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
+    <!-- Ophtalmo-Scan -->
+    <div class="yb-genai-item">
+      <div class="yb-genai-title">Ophtalmo-Scan — AI-Powered Ophthalmology Platform</div>
+      <div class="yb-genai-detail" data-lang-en>
+        A Flask-based ophthalmology patient management platform featuring a medical AI chatbot (Groq / Llama-3.3-70b), RAG system for medical knowledge retrieval, role-based access (doctor / assistant / patient), image analysis via structured LLM prompts, and post-operative follow-up timelines.
+      </div>
+      <div class="yb-genai-detail" data-lang-fr>
+        Plateforme Flask de gestion des patients ophtalmologiques intégrant un chatbot médical IA (Groq / Llama-3.3-70b), un système RAG pour la recherche de connaissances médicales, accès par rôles (médecin / assistant / patient), analyse d'images via LLM et suivi post-opératoire.
+      </div>
+      <div class="yb-genai-detail"><strong>Stack</strong>: Python, Flask, Jinja2, LangChain, Groq API, Gemini (fallback)</div>
+      <div class="yb-genai-detail" data-lang-en><strong>Features</strong>: Medical chatbot, RAG retrieval, multi-role auth, image analysis, follow-up timelines, document upload</div>
+      <div class="yb-genai-detail" data-lang-fr><strong>Fonctionnalités</strong>: Chatbot médical, recherche RAG, authentification multi-rôles, analyse d'images, suivi, upload de documents</div>
+      <a class="yb-genai-github" href="https://github.com/youssefbaz/ophtalmo-scan" target="_blank" rel="noopener">
+        <img src="{% static 'images/github-mark-white.png' %}" alt="GitHub">
+        <span>GitHub</span>
+      </a>
     </div>
-</body>
+
+    <!-- Motivation Letter Generator -->
+    <div class="yb-genai-item">
+      <div class="yb-genai-title">Motivation Letter Generator with LLMs &amp; LangChain</div>
+      <div class="yb-genai-detail" data-lang-en>
+        A Streamlit-based app that helps users automatically generate personalised motivation letters from their resumes. Uses LLMs, PDF parsing, and job scraping from APEC to create ready-to-send letters in PDF format.
+      </div>
+      <div class="yb-genai-detail" data-lang-fr>
+        Application Streamlit qui génère automatiquement des lettres de motivation personnalisées à partir des CV. Utilise les LLMs, le parsing PDF et le scraping d'offres APEC pour produire des lettres prêtes à envoyer en PDF.
+      </div>
+      <div class="yb-genai-detail"><strong>Stack</strong>: Python, LangChain, Streamlit, PyMuPDF, BeautifulSoup, Selenium</div>
+      <div class="yb-genai-detail" data-lang-en><strong>Features</strong>: Resume analysis, LLM-based letter generation, job scraping, downloadable PDFs</div>
+      <div class="yb-genai-detail" data-lang-fr><strong>Fonctionnalités</strong>: Analyse de CV, génération LLM, scraping d'offres, export PDF</div>
+      <div class="yb-genai-detail"><strong>Year</strong>: Apr 2025</div>
+      <a class="yb-genai-github" href="https://github.com/youssefbaz/Autoapply" target="_blank" rel="noopener">
+        <img src="{% static 'images/github-mark-white.png' %}" alt="GitHub">
+        <span>GitHub</span>
+      </a>
+      <div class="yb-genai-video">
+        <video controls>
+          <source src="{% static 'videos/motivation_demo.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Prime Dashboard -->
+    <div class="yb-genai-item">
+      <div class="yb-genai-title">Prime Dashboard — AI-Augmented Productivity</div>
+      <div class="yb-genai-detail" data-lang-en>
+        A multi-page Streamlit productivity tool covering daily schedule, quiz, job tracker, AI cover-letter generator (Claude API), and nutrition planner. Hybrid AI architecture: Ollama (qwen3:14b) local inference with selective Claude API calls.
+      </div>
+      <div class="yb-genai-detail" data-lang-fr>
+        Outil de productivité Streamlit multi-pages : planning quotidien, quiz, suivi emploi, générateur de lettres IA (Claude API), et plan nutrition. Architecture hybride Ollama (qwen3:14b) en local + Claude API sélectif.
+      </div>
+      <div class="yb-genai-detail"><strong>Stack</strong>: Python, Streamlit, Claude API, Ollama</div>
+      <a class="yb-genai-github" href="https://github.com/youssefbaz/prime-dashboard" target="_blank" rel="noopener">
+        <img src="{% static 'images/github-mark-white.png' %}" alt="GitHub">
+        <span>GitHub</span>
+      </a>
+    </div>
+
+  </div>
+</div>
 {% endblock %}

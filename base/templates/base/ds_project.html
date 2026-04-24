@@ -4,19 +4,41 @@
 <section class="projects-section" id="projects">
   <div class="container">
     <header class="projects-header">
-      <h2 class="mb-2">Data Science Projects</h2>
-      <p class="text-muted">A curated selection of my recent work. Clean code, clear results.</p>
+      <h2 class="mb-2" data-lang-en>Data Science Projects</h2>
+      <h2 class="mb-2" data-lang-fr>Projets Data Science</h2>
+      <p class="text-muted" data-lang-en>A curated selection of my recent work. Clean code, clear results.</p>
+      <p class="text-muted" data-lang-fr>Une sélection de mes travaux récents. Code propre, résultats clairs.</p>
     </header>
 
     <div class="projects-grid">
 
       <div class="project-card">
         <div class="project-media">
+          <img loading="lazy" src="{% static 'images/vehicle.jpg' %}" onerror="this.onerror=null;this.src='{% static 'images/energy_cosumption.jpg' %}';" alt="Vehicle Sales Forecasting">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title" data-lang-en>Vehicle Sales Forecasting</h3>
+          <h3 class="project-title" data-lang-fr>Prévision des Ventes de Véhicules</h3>
+          <p class="project-desc" data-lang-en>Freelance for Siyalux (Luxembourg): ARIMA &amp; Prophet forecasting, dynamic pricing model, Power BI KPI dashboard.</p>
+          <p class="project-desc" data-lang-fr>Freelance pour Siyalux (Luxembourg) : prévision ARIMA &amp; Prophet, modèle de prix dynamique, tableau de bord Power BI.</p>
+          <div class="project-tags">
+            <span class="tag">Time Series</span><span class="tag">Prophet</span><span class="tag">ARIMA</span><span class="tag">Power BI</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">2023 — 2024</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-media">
           <img loading="lazy" src="{% static 'images/drone_awarness.jpg' %}" alt="Object Situation Awareness for Drones">
         </div>
         <div class="project-body">
-          <h3 class="project-title">Object Situation Awareness for Autonomous Drones</h3>
-          <p class="project-desc">Perception stack for safe navigation: detection, monocular depth, 3D mapping, obstacle avoidance.</p>
+          <h3 class="project-title" data-lang-en>Object Situation Awareness for Autonomous Drones</h3>
+          <h3 class="project-title" data-lang-fr>Situation Awareness pour Drones Autonomes</h3>
+          <p class="project-desc" data-lang-en>Perception stack for safe navigation: detection, monocular depth, 3D mapping, obstacle avoidance.</p>
+          <p class="project-desc" data-lang-fr>Pile de perception pour navigation sûre : détection, profondeur monoculaire, cartographie 3D, évitement d'obstacles.</p>
           <div class="project-tags">
             <span class="tag">Computer Vision</span><span class="tag">Depth</span>
             <span class="tag">3D Mapping</span><span class="tag">TensorFlow</span>
@@ -24,8 +46,8 @@
           </div>
         </div>
         <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz/MasterThes" target="_blank">GitHub</a>
-          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">Apr 2020</span>
+          <a class="btn-ghost" href="https://github.com/youssefbaz/MasterThes" target="_blank" rel="noopener">GitHub</a>
+          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">2020</span>
         </div>
       </div>
 
@@ -34,16 +56,18 @@
           <img loading="lazy" src="{% static 'images/breast_cancer.jpg' %}" alt="Breast Cancer Detection">
         </div>
         <div class="project-body">
-          <h3 class="project-title">Breast Cancer Detection</h3>
-          <p class="project-desc">Classical ML with feature engineering, cross-validation and tuning for diagnostic support.</p>
+          <h3 class="project-title" data-lang-en>Breast Cancer Detection</h3>
+          <h3 class="project-title" data-lang-fr>Détection du Cancer du Sein</h3>
+          <p class="project-desc" data-lang-en>Classical ML with feature engineering, cross-validation and tuning for diagnostic support.</p>
+          <p class="project-desc" data-lang-fr>ML classique avec feature engineering, validation croisée et tuning pour l'aide au diagnostic.</p>
           <div class="project-tags">
             <span class="tag">Scikit-learn</span><span class="tag">EDA</span>
             <span class="tag">SVM</span><span class="tag">Tree/Ensemble</span>
           </div>
         </div>
         <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz/BreastCancer" target="_blank">GitHub</a>
-          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">May 2023</span>
+          <a class="btn-ghost" href="https://github.com/youssefbaz/BreastCancer" target="_blank" rel="noopener">GitHub</a>
+          <span class="btn-ghost" style="pointer-events:none;opacity:.8;">2023</span>
         </div>
       </div>
 
@@ -52,14 +76,16 @@
           <img loading="lazy" src="{% static 'images/energy_cosumption.jpg' %}" alt="Electricity Consumption Forecasting">
         </div>
         <div class="project-body">
-          <h3 class="project-title">Electricity Consumption Forecasting</h3>
-          <p class="project-desc">Time-series modeling for short-term power demand to inform planning.</p>
+          <h3 class="project-title" data-lang-en>Electricity Consumption Forecasting</h3>
+          <h3 class="project-title" data-lang-fr>Prévision de Consommation Électrique</h3>
+          <p class="project-desc" data-lang-en>Time-series modeling for short-term power demand to inform planning.</p>
+          <p class="project-desc" data-lang-fr>Modélisation séries temporelles pour la demande énergétique à court terme.</p>
           <div class="project-tags">
             <span class="tag">Time Series</span><span class="tag">Forecasting</span>
           </div>
         </div>
         <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+          <a class="btn-ghost" href="https://github.com/youssefbaz/PredictingElectricityConsumption-" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
 
@@ -68,14 +94,16 @@
           <img loading="lazy" src="{% static 'images/houses.jpg' %}" alt="House Price Prediction">
         </div>
         <div class="project-body">
-          <h3 class="project-title">House Price Prediction</h3>
-          <p class="project-desc">Feature engineering and regression to estimate real-estate prices.</p>
+          <h3 class="project-title" data-lang-en>House Price Prediction</h3>
+          <h3 class="project-title" data-lang-fr>Prédiction des Prix Immobiliers</h3>
+          <p class="project-desc" data-lang-en>Feature engineering and regression to estimate real-estate prices.</p>
+          <p class="project-desc" data-lang-fr>Feature engineering et régression pour estimer les prix immobiliers.</p>
           <div class="project-tags">
             <span class="tag">Regression</span><span class="tag">Feature Eng</span><span class="tag">Scikit-learn</span>
           </div>
         </div>
         <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+          <a class="btn-ghost" href="https://github.com/youssefbaz/House_Predictions" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
 
@@ -84,14 +112,16 @@
           <img loading="lazy" src="{% static 'images/diabetes.jpg' %}" alt="Diabetes Classification">
         </div>
         <div class="project-body">
-          <h3 class="project-title">Diabetes Classification</h3>
-          <p class="project-desc">Predictive modeling with model comparison and solid evaluation metrics.</p>
+          <h3 class="project-title" data-lang-en>Diabetes Classification</h3>
+          <h3 class="project-title" data-lang-fr>Classification du Diabète</h3>
+          <p class="project-desc" data-lang-en>Predictive modeling with model comparison and solid evaluation metrics.</p>
+          <p class="project-desc" data-lang-fr>Modélisation prédictive avec comparaison de modèles et métriques d'évaluation robustes.</p>
           <div class="project-tags">
             <span class="tag">Classification</span><span class="tag">Metrics</span><span class="tag">Scikit-learn</span>
           </div>
         </div>
         <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank">GitHub</a>
+          <a class="btn-ghost" href="https://github.com/youssefbaz" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
 

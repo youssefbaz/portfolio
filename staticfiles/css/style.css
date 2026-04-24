@@ -9773,3 +9773,284 @@ html, body { overflow-x: hidden; }
 @media (max-width: 991.98px) {
   .nav-toggle { display:inline-block; }
 }
+
+
+/* ================================================================
+   YB Portfolio — 2025 updates (appended)
+   Button system, hero socials, skill chips, contact boxes,
+   FR/EN language toggle, resume bullets
+================================================================ */
+
+/* ---------- BUTTON SYSTEM ---------- */
+.btn-yb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 28px !important;
+  height: 52px;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .3px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .15s ease;
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1;
+}
+.btn-yb:focus-visible {
+  outline: 3px solid rgba(249, 109, 0, .35);
+  outline-offset: 3px;
+}
+.btn-yb:active { transform: translateY(1px); }
+
+.btn-yb-primary {
+  background: #F96D00 !important;
+  color: #fff !important;
+  border-color: #F96D00 !important;
+}
+.btn-yb-primary:hover {
+  background: #e05f00 !important;
+  border-color: #e05f00 !important;
+  box-shadow: 0 6px 20px rgba(249, 109, 0, .35);
+  transform: translateY(-2px);
+  color: #fff !important;
+}
+
+.btn-yb-outline {
+  background: transparent !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, .6) !important;
+}
+.btn-yb-outline:hover {
+  background: #fff !important;
+  color: #1a1a1a !important;
+  border-color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, .25);
+}
+
+.btn-yb-outline-dark {
+  background: transparent !important;
+  color: #F96D00 !important;
+  border-color: #F96D00 !important;
+}
+.btn-yb-outline-dark:hover {
+  background: #F96D00 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 109, 0, .25);
+}
+
+/* Hero CTA wrapper: proper spacing and wrapping */
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+/* ---------- HERO SOCIALS ---------- */
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+.hero-socials li { list-style: none; }
+.hero-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  color: #fff !important;
+  font-size: 1rem;
+  border: 1.5px solid rgba(255, 255, 255, .25);
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.hero-socials a:hover {
+  background: #F96D00;
+  border-color: #F96D00;
+  transform: translateY(-2px);
+}
+
+/* ---------- NAVBAR LANGUAGE TOGGLE ---------- */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14px;
+  height: 34px;
+  padding: 0 14px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, .4);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+  min-width: 50px;
+}
+.lang-toggle-btn:hover {
+  background: #F96D00;
+  border-color: #F96D00;
+  color: #fff;
+}
+.lang-toggle-btn:focus-visible {
+  outline: 3px solid rgba(249, 109, 0, .35);
+  outline-offset: 2px;
+}
+
+/* ---------- FR/EN DISPLAY LOGIC ---------- */
+/* Default: show EN, hide FR */
+[data-lang-fr] { display: none !important; }
+[data-lang-en] { display: inline; }
+
+/* When body.lang-fr: show FR, hide EN */
+body.lang-fr [data-lang-en] { display: none !important; }
+body.lang-fr [data-lang-fr] { display: inline !important; }
+
+/* Block-level elements need block display, not inline */
+h1[data-lang-en],
+h1[data-lang-fr],
+h2[data-lang-en],
+h2[data-lang-fr],
+h3[data-lang-en],
+h3[data-lang-fr],
+h4[data-lang-en],
+h4[data-lang-fr],
+p[data-lang-en],
+p[data-lang-fr],
+ul[data-lang-en],
+ul[data-lang-fr],
+div[data-lang-en],
+div[data-lang-fr] {
+  display: block;
+}
+body.lang-fr h1[data-lang-fr],
+body.lang-fr h2[data-lang-fr],
+body.lang-fr h3[data-lang-fr],
+body.lang-fr h4[data-lang-fr],
+body.lang-fr p[data-lang-fr],
+body.lang-fr ul[data-lang-fr],
+body.lang-fr div[data-lang-fr] {
+  display: block !important;
+}
+
+/* ---------- RESUME BULLETS ---------- */
+.resume-bullets {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0 0;
+}
+.resume-bullets li {
+  position: relative;
+  padding: 4px 0 4px 22px;
+  font-size: .92rem;
+  line-height: 1.6;
+  color: inherit;
+}
+.resume-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  background: #F96D00;
+  border-radius: 50%;
+}
+
+/* ---------- SKILLS CHIP STACK ---------- */
+.yb-skills-chips { margin-top: 1.5rem; }
+.yb-chip-heading {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .55);
+  margin: 0 0 .85rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.yb-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: .4rem;
+}
+.yb-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: .82rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, .05);
+  border: 1.5px solid rgba(255, 255, 255, .14);
+  transition: border-color .18s, background .18s, color .18s;
+  cursor: default;
+}
+.yb-chip:hover {
+  border-color: #F96D00;
+  background: rgba(249, 109, 0, .12);
+  color: #fff;
+}
+.yb-chip-hot {
+  border-color: #F96D00;
+  background: rgba(249, 109, 0, .15);
+  color: #F96D00;
+}
+
+/* ---------- CONTACT TILES (full-card click + hover) ---------- */
+.yb-contact-box {
+  display: block;
+  color: inherit !important;
+  text-decoration: none !important;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+.yb-contact-box:hover {
+  transform: translateY(-4px);
+  border-color: #F96D00;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
+  color: inherit !important;
+}
+.yb-contact-box:hover .icon { color: #F96D00; }
+.yb-contact-value {
+  font-size: .82rem;
+  color: rgba(255, 255, 255, .7);
+  word-break: break-word;
+  margin: 0;
+}
+
+/* ---------- RESPONSIVE: ensure chips & CTAs wrap nicely ---------- */
+@media (max-width: 768px) {
+  .hero-ctas .btn-yb { flex: 1 1 100%; }
+  .lang-toggle-btn { margin-left: 8px; height: 30px; font-size: .7rem; padding: 0 10px; }
+  .btn-yb { height: 48px; padding: 0 22px !important; font-size: .88rem; }
+  .yb-chip { font-size: .76rem; padding: 6px 11px; }
+}
+
+/* ---------- MISC FIXES ---------- */
+/* Make sure the hero CTAs don't get clipped by the carousel overlay */
+.hero-ctas .btn-yb { pointer-events: auto; }
+/* Remove the orange loader line bleed on dark backgrounds */
+.ftco-footer-social a:hover { background: #F96D00; }
