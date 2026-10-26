@@ -159,6 +159,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .flow li:last-child::before{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .flow b{font-weight:600}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.grid>.card:last-child:nth-child(odd){grid-column:1/-1}
+.grid>.card:last-child:nth-child(odd) p{max-width:52rem}
 @media (max-width:820px){.feature{grid-template-columns:1fr}.feature__flow{border-left:0;border-top:1px solid var(--line)}.grid{grid-template-columns:1fr}}
 
 /* timeline */
@@ -215,7 +217,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   <div class="wrap top__in">
     <a class="brand" href="#top" aria-label="Youssef Bazzaoui, home"><span class="brand__mark" aria-hidden="true">YB</span><span>Youssef Bazzaoui</span></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#work"><span lang="en">Work</span><span lang="fr">Projets</span></a>
+      <a href="#work"><span lang="en">Projects</span><span lang="fr">Projets</span></a>
       <a href="#experience"><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
       <a href="#education"><span lang="en">Education</span><span lang="fr">Formation</span></a>
       <a href="#skills"><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
@@ -261,7 +263,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   <section class="section" id="work">
     <div class="wrap">
       <div class="section__head">
-        <h2><span lang="en">Selected work</span><span lang="fr">Projets choisis</span></h2>
+        <h2><span lang="en">Projects</span><span lang="fr">Projets</span></h2>
       </div>
 
       <article class="card feature">
@@ -341,6 +343,17 @@ ul,ol{margin:0;padding:0;list-style:none}
           <p lang="fr">Analyse un CV PDF et une offre d'emploi, puis rédige une lettre de motivation adaptée au poste avec LangChain.</p>
           <ul class="tags"><li>LangChain</li><li>PDF parsing</li><li>Streamlit</li></ul>
           <div class="card__links"><a href="https://github.com/youssefbaz/Autoapply" target="_blank" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="card__meta">
+            <span class="kind"><span lang="en">Computer vision · Master's thesis · 2020</span><span lang="fr">Vision par ordinateur · Mémoire de master · 2020</span></span>
+          </div>
+          <h3><span lang="en">Situation awareness for autonomous drones</span><span lang="fr">Situation awareness pour drones autonomes</span></h3>
+          <p lang="en">Master's thesis at the University of Luxembourg: a perception stack for safe drone navigation, combining object detection, monocular depth estimation, 3D mapping and obstacle avoidance.</p>
+          <p lang="fr">Mémoire de master à l'Université du Luxembourg&#160;: une chaîne de perception pour la navigation sûre d'un drone, combinant détection d'objets, estimation de profondeur monoculaire, cartographie 3D et évitement d'obstacles.</p>
+          <ul class="tags"><li><span lang="en">Object detection</span><span lang="fr">Détection d'objets</span></li><li><span lang="en">Depth estimation</span><span lang="fr">Estimation de profondeur</span></li><li><span lang="en">3D mapping</span><span lang="fr">Cartographie 3D</span></li><li>PyTorch</li><li>TensorFlow</li><li>OpenCV</li></ul>
+          <div class="card__links"><a href="https://github.com/youssefbaz/MasterThes" target="_blank" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
         </article>
       </div>
     </div>
