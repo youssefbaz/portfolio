@@ -1,683 +1,563 @@
-{% extends 'base/layout.html' %}
-{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Youssef Bazzaoui | Data Scientist &amp; AI Engineer</title>
+<meta name="description" content="Youssef Bazzaoui, Data Scientist and AI Engineer in Paris. LLM agents, RAG pipelines, time-series forecasting. Open to full-time roles and freelance missions.">
+<meta property="og:title" content="Youssef Bazzaoui | Data Scientist &amp; AI Engineer">
+<meta property="og:description" content="LLM agents, RAG pipelines and forecasting models, built end to end. Paris.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://youssef.bazzaoui.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230F1E28'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial' font-weight='800' font-size='13' fill='%23F4F7F8'%3EYB%3C/text%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>(function(){var l;try{l=localStorage.getItem('yb-lang')}catch(e){}if(l!=='fr'&&l!=='en'){l=((navigator.language||'en').toLowerCase().indexOf('fr')===0)?'fr':'en'}var r=document.documentElement;r.setAttribute('data-lang',l);r.lang=l;})();</script>
+<style>
+:root{
+  /* Layout: left-aligned 72rem column; asymmetric hero with portrait; projects are the only carded content; contact closes as an inverted band */
+  --paper:#F4F7F8;
+  --surface:#FFFFFF;
+  --ink:#0F1E28;
+  --muted:#53636D;
+  --line:#D6E0E5;
+  --tint:#E3EEF2;
+  --accent:#B4237E;
+  --accent-ink:#FFFFFF;
+  --spec-lo:#EAF1F4;
+  --spec-mid:#7FA3B5;
+  --spec-hi:#0F1E28;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --gut:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B141A;--surface:#111D25;--ink:#E3ECF0;--muted:#94A5AF;--line:#22333D;--tint:#142630;
+    --accent:#EF6DB8;--accent-ink:#1B0713;--spec-lo:#0D1A21;--spec-mid:#2D6079;--spec-hi:#E3ECF0;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B141A;--surface:#111D25;--ink:#E3ECF0;--muted:#94A5AF;--line:#22333D;--tint:#142630;
+  --accent:#EF6DB8;--accent-ink:#1B0713;--spec-lo:#0D1A21;--spec-mid:#2D6079;--spec-hi:#E3ECF0;
+  color-scheme:dark;
+}
+
+/* language switch */
+:root[data-lang="fr"] [lang="en"]{display:none!important}
+:root:not([data-lang="fr"]) [lang="fr"]{display:none!important}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--paper)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+
+.wrap{max-width:72rem;margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;gap:1.5rem;padding-block:.8rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:1rem;letter-spacing:.01em;white-space:nowrap}
+.brand__mark{display:grid;place-items:center;width:1.9rem;height:1.9rem;background:var(--ink);color:var(--paper);font-size:.72rem;font-stretch:125%;font-weight:800;border-radius:3px;letter-spacing:.04em}
+.nav{display:flex;gap:1.4rem;margin-left:auto}
+.nav a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--muted);padding-block:.3rem;border-bottom:1.5px solid transparent}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.lang{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;flex-shrink:0}
+.lang button{font:500 .75rem/1 var(--f-mono);letter-spacing:.06em;padding:.5rem .6rem;background:transparent;color:var(--muted);border:0;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+@media (max-width:760px){.nav a:not(.nav__cta){display:none}.nav{gap:1rem}}
+
+/* hero */
+.hero{padding-block:clamp(2.5rem,7vw,5.5rem) clamp(2rem,4vw,3rem)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.eyebrow{font:500 .8rem/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.name{font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:clamp(2.45rem,8vw,5.1rem);line-height:.92;letter-spacing:-.01em;margin-top:1rem}
+.name span{display:block}
+.name span:last-child{color:var(--accent)}
+.lead{font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.55;max-width:38rem;margin-top:1.5rem}
+.avail{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;font-size:.95rem;font-weight:500}
+.pulse{width:.55rem;height:.55rem;border-radius:50%;background:#1F9D63;box-shadow:0 0 0 0 rgba(31,157,99,.45);animation:pulse 2.4s ease-out infinite;flex-shrink:0}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,157,99,.45)}70%{box-shadow:0 0 0 .55rem rgba(31,157,99,0)}100%{box-shadow:0 0 0 0 rgba(31,157,99,0)}}
+@media (prefers-reduced-motion: reduce){.pulse{animation:none}}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem;margin-top:1.75rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:600 .95rem/1 var(--f-body);padding:.85rem 1.15rem;border-radius:4px;border:1.5px solid var(--ink);text-decoration:none;color:var(--ink);background:transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn--primary{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tlink{font-weight:500;font-size:.95rem;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:.3em}
+.tlink:hover{text-decoration-color:var(--accent)}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:2.25rem;padding-top:1.25rem;border-top:1px solid var(--line);font:400 .82rem/1.4 var(--f-mono);color:var(--muted)}
+.facts li{display:flex;align-items:center;gap:.5rem}
+.facts li::before{content:"";width:.4rem;height:.4rem;background:var(--accent);flex-shrink:0}
+.facts__link{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:.25em}
+.facts__link:hover{color:var(--ink);text-decoration-color:var(--accent)}
+.portrait{margin:0;width:clamp(11rem,20vw,15.5rem)}
+.portrait img{display:block;width:100%;max-width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px;background:var(--tint)}
+.portrait figcaption{display:flex;justify-content:space-between;margin-top:.6rem;font:400 .75rem/1.3 var(--f-mono);color:var(--muted);letter-spacing:.04em}
+@media (max-width:640px){
+  .hero__grid{grid-template-columns:1fr}
+  .portrait{order:-1;width:7.5rem}
+  .portrait figcaption{display:none}
+}
+
+/* thesis */
+.thesis{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.5rem 1.25rem;margin:1rem 0 0;max-width:46rem}
+.thesis dt{font:500 .72rem/1.65 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:.1rem}
+.thesis dd{margin:0;font-size:.97rem;line-height:1.5}
+@media (max-width:520px){.thesis{grid-template-columns:1fr;gap:.1rem}.thesis dd{margin-bottom:.55rem}}
+
+/* sections */
+.section{padding-block:clamp(3.5rem,8vw,6rem) 0}
+.section__head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem;margin-bottom:clamp(1.75rem,4vw,2.5rem)}
+.section__head h2{font-family:var(--f-display);font-stretch:112%;font-weight:750;font-size:clamp(1.75rem,3.6vw,2.4rem);line-height:1.05;letter-spacing:-.005em}
+.section__head p{color:var(--muted);max-width:34rem;font-size:.98rem}
+
+/* projects */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:clamp(1.25rem,2.6vw,1.75rem);display:flex;flex-direction:column;gap:.9rem;min-width:0}
+.card__meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem}
+.kind{font:400 .78rem/1.3 var(--f-mono);color:var(--muted);letter-spacing:.03em}
+.chip{font:500 .68rem/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;padding:.38rem .55rem;border:1px solid currentColor;border-radius:999px;white-space:nowrap}
+.chip--progress{color:var(--accent)}
+.chip--proto{color:var(--muted)}
+.chip--client{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.card h3{font-family:var(--f-display);font-stretch:108%;font-weight:700;font-size:1.3rem;line-height:1.2}
+.card p{color:var(--ink);font-size:.98rem;line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags li{font:400 .74rem/1 var(--f-mono);padding:.42rem .55rem;background:var(--tint);border-radius:3px;color:var(--ink)}
+.card__links{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:auto;padding-top:.4rem}
+.card__links a{font-weight:600;font-size:.92rem;text-decoration:none;display:inline-flex;gap:.3rem;align-items:center;border-bottom:1.5px solid var(--line);padding-bottom:.1rem}
+.card__links a:hover{border-bottom-color:var(--accent)}
+.card__links .note{font:400 .78rem/1.4 var(--f-mono);color:var(--muted)}
+.arr{transition:transform .15s}
+.card__links a:hover .arr{transform:translate(2px,-2px)}
+
+.feature{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:0;padding:0;overflow:hidden;margin-bottom:1.25rem}
+.feature__main{padding:clamp(1.4rem,3vw,2.25rem);display:flex;flex-direction:column;gap:1rem;min-width:0}
+.feature h3{font-size:clamp(1.45rem,2.6vw,1.85rem)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1rem 1.5rem;margin:.4rem 0 .2rem;padding-block:1rem;border-block:1px solid var(--line)}
+.metrics div{min-width:0}
+.metrics dt{font-family:var(--f-display);font-stretch:112%;font-weight:750;font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+.metrics dd{margin:.4rem 0 0;font-size:.85rem;color:var(--muted);line-height:1.4}
+.feature__flow{background:var(--tint);padding:clamp(1.4rem,3vw,2.25rem);border-left:1px solid var(--line);min-width:0}
+.feature__flow h4{margin:0 0 1rem;font:500 .75rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.flow{counter-reset:step;display:grid;gap:0}
+.flow li{counter-increment:step;position:relative;padding:0 0 1.1rem 2.4rem;font-size:.93rem;line-height:1.45}
+.flow li::before{content:counter(step);position:absolute;left:0;top:-.05rem;width:1.55rem;height:1.55rem;display:grid;place-items:center;font:500 .72rem/1 var(--f-mono);border:1.5px solid var(--ink);border-radius:50%;background:var(--surface)}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:.75rem;top:1.55rem;bottom:.05rem;width:1.5px;background:var(--line)}
+.flow li:last-child{padding-bottom:0}
+.flow li:last-child::before{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.flow b{font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+@media (max-width:820px){.feature{grid-template-columns:1fr}.feature__flow{border-left:0;border-top:1px solid var(--line)}.grid{grid-template-columns:1fr}}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:.5rem 2rem;padding-block:1.6rem;border-top:1px solid var(--line)}
+.tl:last-child{border-bottom:1px solid var(--line)}
+.tl__date{font:400 .85rem/1.5 var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:.2rem}
+.tl h3{font-family:var(--f-display);font-stretch:105%;font-weight:700;font-size:1.18rem;line-height:1.3}
+.tl__org{color:var(--muted);font-size:.95rem;margin-top:.15rem}
+.tl__body ul{margin-top:.8rem;display:grid;gap:.45rem;max-width:44rem}
+.tl__body li{position:relative;padding-left:1.1rem;font-size:.97rem;line-height:1.55}
+.tl__body li::before{content:"";position:absolute;left:0;top:.68em;width:.45rem;height:1.5px;background:var(--accent)}
+.tl__note{margin-top:.6rem;font-size:.95rem;max-width:44rem}
+@media (max-width:640px){.tl{grid-template-columns:1fr;gap:.35rem}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem 1.75rem}
+.skills h3{font:500 .75rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:.7rem;margin-bottom:.8rem;border-bottom:1.5px solid var(--ink)}
+.skills li{font-size:.97rem;line-height:1.35;padding-block:.28rem}
+.extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem 1.75rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.extras dt{font:500 .75rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.extras dd{margin:.45rem 0 0;font-size:.97rem}
+@media (max-width:900px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.skills,.extras{grid-template-columns:1fr}}
+
+/* contact */
+.contact{margin-top:clamp(4rem,9vw,7rem);background:var(--ink);color:var(--paper);padding-block:clamp(3rem,7vw,5rem)}
+.contact__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:2.5rem 4rem;align-items:start}
+.contact h2{font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:clamp(2rem,5vw,3.4rem);line-height:1}
+.contact .sub{margin-top:1.1rem;max-width:30rem;color:color-mix(in srgb,var(--paper) 74%,var(--ink));font-size:1.05rem}
+.rows{display:grid;gap:0}
+.row{display:grid;grid-template-columns:6.5rem minmax(0,1fr) auto;align-items:center;gap:.5rem 1rem;padding-block:1rem;border-top:1px solid color-mix(in srgb,var(--paper) 22%,var(--ink))}
+.row:last-child{border-bottom:1px solid color-mix(in srgb,var(--paper) 22%,var(--ink))}
+.row dt{font:500 .72rem/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--paper) 65%,var(--ink))}
+.row dd{margin:0;min-width:0;overflow-wrap:anywhere;font-size:1.02rem;font-weight:500}
+.row a{text-decoration:none;border-bottom:1.5px solid color-mix(in srgb,var(--paper) 35%,var(--ink))}
+.row a:hover{border-bottom-color:var(--paper)}
+.copy{font:500 .72rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.5rem .65rem;border-radius:3px;border:1px solid color-mix(in srgb,var(--paper) 45%,var(--ink));background:transparent;color:var(--paper);cursor:pointer}
+.copy:hover{background:var(--paper);color:var(--ink)}
+.copy .c-done{display:none}
+.copy.is-done .c-idle{display:none}
+.copy.is-done .c-done{display:inline}
+.contact :focus-visible{outline-color:var(--paper)}
+@media (max-width:820px){.contact__grid{grid-template-columns:1fr}}
+@media (max-width:420px){.row{grid-template-columns:1fr auto}.row dt{grid-column:1/-1}}
+
+.foot{padding-block:1.5rem;background:var(--ink);color:color-mix(in srgb,var(--paper) 60%,var(--ink));border-top:1px solid color-mix(in srgb,var(--paper) 16%,var(--ink))}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;font:400 .75rem/1.4 var(--f-mono);letter-spacing:.03em}
+</style>
+</head>
+<body>
 
 
-
-{% block content %}
-
-
-
-
-    <section id="home-section" class="hero">
-      <div class="home-slider  owl-carousel">
-        <div class="slider-item ">
-          <div class="overlay"></div>
-          <div class="container">
-            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-				<div class="one-third js-fullheight order-md-last img" style="background-image: url({% static 'images/youssef.png' %}); background-size: 300px 300px; background-position: center; background-repeat: no-repeat; border-radius: 50%; overflow: hidden;">
-         <div class="overlay"></div>
-              </div>
-              <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <div class="text">
-                  <h1 class="mb-4 mt-3">
-                    <span data-lang-en><span>Youssef Bazzaoui</span><br>Data Scientist &amp; AI Engineer</span>
-                    <span data-lang-fr><span>Youssef Bazzaoui</span><br>Data Scientist &amp; Ingénieur IA</span>
-                  </h1>
-                  <p class="hero-ctas"><a href="#contact-section" class="btn btn-primary btn-yb btn-yb-primary"><span data-lang-en>Hire me</span><span data-lang-fr>Me contacter</span></a> <a href="#projects-section" class="btn btn-white btn-outline-white btn-yb btn-yb-outline"><span data-lang-en>My works</span><span data-lang-fr>Mes projets</span></a></p>
-				  <ul class="hero-socials list-unstyled">
-				    <li class="ftco-animate"><a href="https://www.linkedin.com/in/youssef-bazzaoui/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="icon-linkedin"></span></a></li>
-				    <li class="ftco-animate"><a href="https://github.com/youssefbaz" target="_blank" rel="noopener" aria-label="GitHub"><span class="icon-github"></span></a></li>
-				    <li class="ftco-animate"><a href="mailto:bazzaoui.youssef@gmail.com" aria-label="Email"><span class="icon-envelope"></span></a></li>
-				  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-6 col-lg-5 d-flex">
-            <div class="img-about img d-flex align-items-stretch">
-              <div class="overlay"></div>
-
-			  <div class="img d-flex align-self-stretch align-items-center" style="background-image: url({% static 'images/ys.jpeg' %});">
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-            <div class="row justify-content-start pb-3">
-              <div class="col-md-12 heading-section ftco-animate">
-                <h1 class="big" data-lang-en>About</h1>
-                <h1 class="big" data-lang-fr>À propos</h1>
-                <h2 class="mb-4" data-lang-en>About Me</h2>
-                <h2 class="mb-4" data-lang-fr>À propos de moi</h2>
-                <p data-lang-en>I'm a Data Scientist and AI Engineer based in Paris, with a dual Master's in Artificial Intelligence (University of Luxembourg) and Data Science (DSTI Paris). I specialise in building end-to-end AI systems — from ETL pipelines and predictive models to RAG architectures and LLM-powered applications deployed in production.</p>
-                <p data-lang-fr>Data Scientist et Ingénieur IA basé à Paris, avec un double Master en Intelligence Artificielle (Université du Luxembourg) et Data Science (DSTI Paris). Je me spécialise dans la construction de systèmes IA de bout en bout — pipelines ETL, modèles prédictifs, architectures RAG et applications LLM déployées en production.</p>
-                <p data-lang-en>Beyond work, I play football weekly, train at the gym regularly, and enjoy Esports. Having lived in France, Luxembourg, and Morocco, I bring an international perspective to every project and speak Arabic, English, French, and basic Spanish.</p>
-                <p data-lang-fr>En dehors du travail, je joue au football chaque semaine, m'entraîne à la salle et apprécie les Esports. Ayant vécu en France, au Luxembourg et au Maroc, j'apporte une perspective internationale et parle arabe, anglais, français et espagnol de base.</p>
-                <ul class="about-info mt-4 px-md-0 px-2">
-                  <li class="d-flex"><span data-lang-en>Name:</span><span data-lang-fr>Nom :</span> <span>Youssef Bazzaoui</span></li>
-                  <li class="d-flex"><span data-lang-en>Date of birth:</span><span data-lang-fr>Date de naissance :</span> <span>May 16, 1994</span></li>
-                  <li class="d-flex"><span data-lang-en>City:</span><span data-lang-fr>Ville :</span> <span>Paris, France</span></li>
-                  <li class="d-flex"><span>Email:</span> <span><a href="mailto:bazzaoui.youssef@gmail.com">bazzaoui.youssef@gmail.com</a></span></li>
-                  <li class="d-flex"><span data-lang-en>Phone:</span><span data-lang-fr>Téléphone :</span> <span><a href="tel:+33695759559">+33 6 95 75 95 59</a></span></li>
-                  <li class="d-flex"><span data-lang-en>Status:</span><span data-lang-fr>Statut :</span> <span data-lang-en>Open to full-time &amp; freelance</span><span data-lang-fr>Disponible CDI &amp; freelance</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Featured Projects -->
-<section class="projects-section" id="featured-projects">
-  <div class="container">
-    <header class="projects-header">
-      <h2 class="mb-2" data-lang-en>Featured Projects</h2>
-      <h2 class="mb-2" data-lang-fr>Projets à la une</h2>
-      <p class="text-muted" data-lang-en>Selected highlights. See all projects in the sections below.</p>
-      <p class="text-muted" data-lang-fr>Sélection de projets récents. Voir tous les projets ci-dessous.</p>
-    </header>
-
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-media">
-          <img loading="lazy" src="{% static 'images/ophtalmo.jpg' %}" onerror="this.onerror=null;this.src='{% static 'images/genai.jpg' %}';" alt="Ophtalmo-Scan">
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Ophtalmo-Scan</h3>
-          <p class="project-desc" data-lang-en>Ophthalmology platform with AI medical chatbot (Groq / Llama-3.3-70b), RAG system, image analysis and role-based access.</p>
-          <p class="project-desc" data-lang-fr>Plateforme ophtalmologique avec chatbot IA (Groq / Llama-3.3-70b), système RAG, analyse d'images et accès par rôles.</p>
-          <div class="project-tags">
-            <span class="tag">Flask</span><span class="tag">LangChain</span><span class="tag">Groq</span><span class="tag">RAG</span>
-          </div>
-        </div>
-        <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz/ophtalmo-scan" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <img loading="lazy" src="{% static 'images/prime.jpg' %}" onerror="this.onerror=null;this.src='{% static 'images/portfolio.jpg' %}';" alt="Prime Dashboard">
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Prime Dashboard</h3>
-          <p class="project-desc" data-lang-en>Multi-page productivity app: job tracker, nutrition planner, AI cover-letter generator (Claude API + Ollama).</p>
-          <p class="project-desc" data-lang-fr>App productivité multi-pages : suivi emploi, plan nutrition, générateur de lettres IA (Claude API + Ollama).</p>
-          <div class="project-tags">
-            <span class="tag">Streamlit</span><span class="tag">Claude API</span><span class="tag">Ollama</span>
-          </div>
-        </div>
-        <div class="project-footer">
-          <a class="btn-ghost" href="https://github.com/youssefbaz/prime-dashboard" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn-ghost" href="https://prime-dashboard-8by5a2l59awkngxpkyijqe.streamlit.app" target="_blank" rel="noopener"><span data-lang-en>Live</span><span data-lang-fr>En ligne</span></a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-media">
-          <img loading="lazy" src="{% static 'images/genai.jpg' %}" alt="Motivation Letter Generator">
-        </div>
-        <div class="project-body">
-          <h3 class="project-title" data-lang-en>Motivation Letter Generator</h3>
-          <h3 class="project-title" data-lang-fr>Générateur de Lettres de Motivation</h3>
-          <p class="project-desc" data-lang-en>LLM app that tailors cover letters to job posts — PDF CV parsing and LangChain generation.</p>
-          <p class="project-desc" data-lang-fr>App LLM qui adapte les lettres de motivation aux offres — parsing de CV PDF et génération via LangChain.</p>
-          <div class="project-tags">
-            <span class="tag">LLM</span><span class="tag">LangChain</span><span class="tag">Streamlit</span>
-          </div>
-        </div>
-        <div class="project-footer">
-          <a class="btn-ghost" href="/genai_project.html"><span data-lang-en>View Details</span><span data-lang-fr>Voir le détail</span></a>
-          <a class="btn-ghost" href="https://github.com/youssefbaz/Autoapply" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-actions">
-      <a class="btn-ghost" href="/ds_project.html"><span data-lang-en>All Data Science</span><span data-lang-fr>Tous Data Science</span></a>
-      <a class="btn-ghost" href="/code_project.html"><span data-lang-en>All Coding</span><span data-lang-fr>Tout le Code</span></a>
-      <a class="btn-ghost" href="/genai_project.html"><span data-lang-en>All GenAI</span><span data-lang-fr>Tout GenAI</span></a>
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Youssef Bazzaoui, home"><span class="brand__mark" aria-hidden="true">YB</span><span>Youssef Bazzaoui</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work"><span lang="en">Work</span><span lang="fr">Projets</span></a>
+      <a href="#experience"><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
+      <a href="#education"><span lang="en">Education</span><span lang="fr">Formation</span></a>
+      <a href="#skills"><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
+      <a class="nav__cta" href="#contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" data-setlang="en" aria-pressed="false">EN</button>
+      <button type="button" id="lang-fr" data-setlang="fr" aria-pressed="false">FR</button>
     </div>
   </div>
-</section>
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-            <h1 class="big big-2" data-lang-en>Resume</h1>
-            <h1 class="big big-2" data-lang-fr>CV</h1>
-            <h2 class="mb-4" data-lang-en>Resume</h2>
-            <h2 class="mb-4" data-lang-fr>Parcours</h2>
-            <p data-lang-en>This section showcases my professional journey, educational background, skills, and interests — a comprehensive overview of my qualifications as a Data Scientist and AI Engineer.</p>
-            <p data-lang-fr>Cette section présente mon parcours professionnel, ma formation, mes compétences et centres d'intérêt — une vue d'ensemble de mon profil de Data Scientist et Ingénieur IA.</p>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow"><span lang="en">Data Scientist &amp; AI Engineer · Paris</span><span lang="fr">Data Scientist &amp; Ingénieur IA · Paris</span></p>
+        <h1 class="name"><span>Youssef</span><span>Bazzaoui</span></h1>
+        <p class="lead" lang="en">I build LLM applications and predictive models end to end: agents and RAG pipelines, time-series forecasting, and the APIs and dashboards that put them in front of users.</p>
+        <p class="lead" lang="fr">Je conçois des applications LLM et des modèles prédictifs de bout en bout&#160;: agents et pipelines RAG, prévision de séries temporelles, et les API et tableaux de bord qui les mettent entre les mains des utilisateurs.</p>
+        <p class="avail"><span class="pulse" aria-hidden="true"></span><span lang="en">Open to full-time roles and freelance missions</span><span lang="fr">Disponible en CDI et en mission freelance</span></p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#contact"><span lang="en">Get in touch</span><span lang="fr">Me contacter</span></a>
+          <a class="btn" lang="en" href="/static/pdf/Youssef.pdf" target="_blank" rel="noopener">Download CV <span aria-hidden="true">↗</span></a>
+          <a class="btn" lang="fr" href="/static/pdf/Youssef_Cv_Fr.pdf" target="_blank" rel="noopener">Télécharger le CV <span aria-hidden="true">↗</span></a>
+          <a class="tlink" href="https://github.com/youssefbaz" target="_blank" rel="noopener">GitHub</a>
+          <a class="tlink" href="https://www.linkedin.com/in/youssef-bazzaoui/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <ul class="facts">
+          <li><a class="facts__link" href="#phd"><span lang="en">PhD in AI, in progress</span><span lang="fr">Doctorat en IA, en cours</span></a></li>
+          <li><span lang="en">MSc AI, Univ. of Luxembourg</span><span lang="fr">Master IA, Univ. du Luxembourg</span></li>
+          <li><span lang="en">MSc Data Science, DSTI Paris</span><span lang="fr">Master Data Science, DSTI Paris</span></li>
+          <li><span lang="en">French · English · Arabic</span><span lang="fr">Français · Anglais · Arabe</span></li>
+        </ul>
+      </div>
+      <figure class="portrait">
+        <img src="data:image/jpeg;base64,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" alt="Portrait of Youssef Bazzaoui" width="480" height="480">
+        <figcaption><span>Paris, FR</span><span>48.85° N</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section__head">
+        <h2><span lang="en">Selected work</span><span lang="fr">Projets choisis</span></h2>
+        <p lang="en">From client forecasting to LLM agents. Code is on GitHub wherever the work allows it.</p>
+        <p lang="fr">De la prévision pour un client aux agents LLM. Le code est sur GitHub quand le projet le permet.</p>
+      </div>
+
+      <article class="card feature">
+        <div class="feature__main">
+          <div class="card__meta">
+            <span class="kind">LLM agent · RAG · 2026</span>
+            <span class="chip chip--progress"><span lang="en">In progress</span><span lang="fr">En cours</span></span>
           </div>
+          <h3><span lang="en">Retail shopping assistant</span><span lang="fr">Assistant shopping retail</span></h3>
+          <p lang="en">A conversational shopping assistant for sports retail. A LangGraph agent searches a catalog built from public Amazon review data, checks stock by store, and recommends at most three products per answer. Every price and product ID in a reply is checked against the catalog before it reaches the user.</p>
+          <p lang="fr">Assistant shopping conversationnel pour le retail sportif. Un agent LangGraph interroge un catalogue construit à partir de données publiques d'avis Amazon, vérifie le stock par magasin et recommande au plus trois produits par réponse. Chaque prix et identifiant produit cité est vérifié dans le catalogue avant d'atteindre l'utilisateur.</p>
+          <dl class="metrics">
+            <div><dt>82%</dt><dd><span lang="en">precision@5 with query rewriting and hybrid search, up from a 64% semantic-only baseline</span><span lang="fr">precision@5 avec réécriture de requête et recherche hybride, contre 64&#160;% en sémantique seule</span></dd></div>
+            <div><dt><span lang="en">1,014</span><span lang="fr">1&#8239;014</span></dt><dd><span lang="en">products in 39 families</span><span lang="fr">produits répartis en 39 familles</span></dd></div>
+            <div><dt><span lang="en">19,834</span><span lang="fr">19&#8239;834</span></dt><dd><span lang="en">customer reviews indexed</span><span lang="fr">avis clients indexés</span></dd></div>
+          </dl>
+          <ul class="tags"><li>LangGraph</li><li>LangChain</li><li>FAISS</li><li>BM25 + RRF</li><li>bge-m3</li><li>Ollama · Qwen</li><li>FastAPI</li><li>Streamlit</li></ul>
+          <div class="card__links"><a href="https://github.com/youssefbaz/Retail-Chat-Assistance-Project" target="_blank" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="feature__flow">
+          <h4><span lang="en">How a question is answered</span><span lang="fr">Comment une question est traitée</span></h4>
+          <ol class="flow">
+            <li lang="en"><b>Rewrite</b> the query in English, where retrieval scores best</li>
+            <li lang="fr"><b>Réécriture</b> de la requête en anglais, où la recherche est la plus précise</li>
+            <li lang="en"><b>Hybrid retrieval</b>: BM25 and bge-m3 embeddings fused with RRF</li>
+            <li lang="fr"><b>Recherche hybride</b>&#160;: BM25 et embeddings bge-m3 fusionnés par RRF</li>
+            <li lang="en"><b>Agent tools</b> search the catalog and check store stock</li>
+            <li lang="fr"><b>Outils de l'agent</b>&#160;: recherche catalogue et stock magasin</li>
+            <li lang="en"><b>Grounding check</b> on every price and product ID</li>
+            <li lang="fr"><b>Vérification</b> de chaque prix et identifiant produit</li>
+            <li lang="en"><b>Streamed answer</b> over a FastAPI endpoint</li>
+            <li lang="fr"><b>Réponse streamée</b> via un endpoint FastAPI</li>
+          </ol>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card__meta">
+            <span class="kind">Time series · Siyalux, Luxembourg</span>
+            <span class="chip chip--client"><span lang="en">Client work</span><span lang="fr">Mission client</span></span>
+          </div>
+          <h3><span lang="en">Vehicle sales forecasting &amp; pricing</span><span lang="fr">Prévision des ventes et tarification de véhicules</span></h3>
+          <p lang="en">Exploratory analysis of multi-zone, multi-period sales data for a car dealer, then time-series models to anticipate demand and support pricing decisions. Results delivered as a Power BI KPI dashboard.</p>
+          <p lang="fr">Analyse exploratoire de données de ventes multi-zones et multi-périodes pour un concessionnaire automobile, puis modèles de séries temporelles pour anticiper la demande et éclairer la politique tarifaire. Résultats livrés dans un tableau de bord Power BI.</p>
+          <ul class="tags"><li>Python</li><li>Prophet</li><li>ARIMA</li><li>Power BI</li></ul>
+          <div class="card__links"><span class="note"><span lang="en">Client code, not public</span><span lang="fr">Code client, non public</span></span></div>
+        </article>
+
+        <article class="card">
+          <div class="card__meta">
+            <span class="kind">NLP · Pricing · <span lang="en">Hospitality</span><span lang="fr">Hôtellerie</span></span>
+          </div>
+          <h3><span lang="en">Hotel review sentiment &amp; competitive pricing</span><span lang="fr">Analyse des avis clients et tarification dynamique hôtelière</span></h3>
+          <p lang="en">Sentiment classification of hotel customer reviews with scikit-learn, paired with a dynamic-pricing tool that compares competitor rates and anticipates demand to recommend room prices.</p>
+          <p lang="fr">Classification NLP du sentiment des avis clients hôteliers (scikit-learn), couplée à un outil de tarification dynamique qui compare les prix des concurrents et anticipe la demande pour recommander des tarifs.</p>
+          <ul class="tags"><li>Python</li><li>scikit-learn</li><li>NLP</li><li><span lang="en">Dynamic pricing</span><span lang="fr">Pricing dynamique</span></li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card__meta">
+            <span class="kind">LLM · RAG · Web app</span>
+            <span class="chip chip--proto"><span lang="en">Prototype</span><span lang="fr">Prototype</span></span>
+          </div>
+          <h3>Ophtalmo-Scan</h3>
+          <p lang="en">Patient-management platform for ophthalmology practices, with separate doctor, assistant and patient roles. RAG search over medical records, an AI chatbot on Llama 3.3 70B via Groq, post-op follow-up timelines and LLM analysis of clinical images.</p>
+          <p lang="fr">Plateforme de gestion de patients pour cabinets d'ophtalmologie, avec des rôles médecin, assistant et patient. Recherche RAG dans les dossiers médicaux, chatbot IA sur Llama 3.3 70B via Groq, suivi post-opératoire et analyse d'images cliniques par LLM.</p>
+          <ul class="tags"><li>Flask</li><li>LangChain</li><li>Groq</li><li>RAG</li></ul>
+          <div class="card__links"><a href="https://github.com/youssefbaz/ophtalmo-scan" target="_blank" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
+        </article>
+
+        <article class="card">
+          <div class="card__meta">
+            <span class="kind">LLM · LangChain</span>
+          </div>
+          <h3><span lang="en">Cover-letter generator</span><span lang="fr">Générateur de lettres de motivation</span></h3>
+          <p lang="en">Parses a PDF résumé and a job post, then drafts a cover letter matched to the role with LangChain.</p>
+          <p lang="fr">Analyse un CV PDF et une offre d'emploi, puis rédige une lettre de motivation adaptée au poste avec LangChain.</p>
+          <ul class="tags"><li>LangChain</li><li>PDF parsing</li><li>Streamlit</li></ul>
+          <div class="card__links"><a href="https://github.com/youssefbaz/Autoapply" target="_blank" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="section__head">
+        <h2><span lang="en">Experience</span><span lang="fr">Expérience</span></h2>
+      </div>
+      <ol>
+        <li class="tl">
+          <p class="tl__date">06/2023 – <span lang="en">present</span><span lang="fr">aujourd'hui</span></p>
+          <div class="tl__body">
+            <h3><span lang="en">Freelance Data Scientist &amp; AI Engineer</span><span lang="fr">Data Scientist &amp; Ingénieur IA freelance</span></h3>
+            <p class="tl__org">Data Insights · Paris</p>
+            <ul lang="en">
+              <li>Forecasting and pricing mission for Siyalux (Luxembourg): sales analysis across zones and periods, time-series models and Power BI reporting.</li>
+              <li>Design and build LLM applications: agents, RAG pipelines and streaming APIs (see selected work).</li>
+            </ul>
+            <ul lang="fr">
+              <li>Mission de prévision et de tarification pour Siyalux (Luxembourg)&#160;: analyse des ventes par zone et par période, modèles de séries temporelles et reporting Power BI.</li>
+              <li>Conception et développement d'applications LLM&#160;: agents, pipelines RAG et API en streaming (voir les projets).</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl__date">12/2022 – 05/2023</p>
+          <div class="tl__body">
+            <h3><span lang="en">Data Science Intern</span><span lang="fr">Data Scientist stagiaire</span></h3>
+            <p class="tl__org">Eurobank Private Bank · Luxembourg</p>
+            <ul lang="en">
+              <li>Built predictive models (ARIMA, logistic regression) of product volumes across FX, securities trades, loans and deposits.</li>
+              <li>Built SSIS packages loading core-banking data into the data warehouse.</li>
+              <li>Automated recurring reports and KPIs for business teams, and reconciled figures across reports.</li>
+            </ul>
+            <ul lang="fr">
+              <li>Modèles prédictifs (ARIMA, régression logistique) du volume de produits par type&#160;: change, titres, prêts et dépôts.</li>
+              <li>Packages SSIS pour charger les données du core banking dans le data warehouse.</li>
+              <li>Automatisation des rapports et indicateurs pour les équipes métier, et consolidation des données entre rapports.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl__date">09/2020 – 09/2021</p>
+          <div class="tl__body">
+            <h3><span lang="en">Junior Python Developer</span><span lang="fr">Développeur Python junior</span></h3>
+            <p class="tl__org">Valsesia · Casablanca</p>
+            <ul lang="en">
+              <li>Developed and maintained the internal stock-management and order-tracking system (Python, Excel automation).</li>
+              <li>Automated daily sales reports and data entry with Python scripts.</li>
+            </ul>
+            <ul lang="fr">
+              <li>Développement et maintenance du système interne de gestion des stocks et de suivi des commandes (Python, automatisation Excel).</li>
+              <li>Scripts d'automatisation pour les rapports de ventes quotidiens et la saisie de données.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="wrap">
+      <div class="section__head">
+        <h2><span lang="en">Education</span><span lang="fr">Formation</span></h2>
+      </div>
+      <ol>
+        <li class="tl" id="phd">
+          <p class="tl__date">2025 – <span lang="en">present</span><span lang="fr">aujourd'hui</span></p>
+          <div class="tl__body">
+            <h3><span lang="en">PhD in Artificial Intelligence</span><span lang="fr">Doctorat en Intelligence Artificielle</span></h3>
+            <p class="tl__org">Faculté des Sciences Aïn Chock, Université Hassan II · Casablanca</p>
+            <dl class="thesis">
+              <dt><span lang="en">Thesis</span><span lang="fr">Thèse</span></dt>
+              <dd><span lang="en">Passive-sonar target classification with robust machine learning</span><span lang="fr">Classification de cibles sonar passif par apprentissage automatique robuste</span></dd>
+              <dt><span lang="en">Field</span><span lang="fr">Domaine</span></dt>
+              <dd><span lang="en">Underwater acoustic target recognition (UATR)</span><span lang="fr">Reconnaissance de cibles acoustiques sous-marines (UATR)</span></dd>
+              <dt><span lang="en">Focus</span><span lang="fr">Axe</span></dt>
+              <dd><span lang="en">Classifiers that stay reliable from one sonar platform and sea environment to another</span><span lang="fr">Des classifieurs qui restent fiables d'une plateforme sonar et d'un environnement marin à l'autre</span></dd>
+            </dl>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl__date">2021 – 2023</p>
+          <div class="tl__body">
+            <h3><span lang="en">Applied MSc in Data Science &amp; AI</span><span lang="fr">Master spécialisé en Data Science &amp; IA</span></h3>
+            <p class="tl__org">DataScience Tech Institute (DSTI) · Paris</p>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl__date">2018 – 2020</p>
+          <div class="tl__body">
+            <h3><span lang="en">MSc Computer Science, AI specialization</span><span lang="fr">Master Informatique, spécialité Intelligence Artificielle</span></h3>
+            <p class="tl__org"><span lang="en">University of Luxembourg</span><span lang="fr">Université du Luxembourg</span> · Esch-sur-Alzette</p>
+            <p class="tl__note" lang="en">Thesis: machine-learning-based situation awareness for autonomous drones.</p>
+            <p class="tl__note" lang="fr">Mémoire&#160;: situation awareness par machine learning pour drones autonomes.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <p class="tl__date">2013 – 2017</p>
+          <div class="tl__body">
+            <h3><span lang="en">BSc Mathematics &amp; Computer Science applied to Social Sciences (MIAGE)</span><span lang="fr">Licence MIASHS (MIAGE)</span></h3>
+            <p class="tl__org">Université Paris Nanterre · Paris</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section__head">
+        <h2><span lang="en">Skills</span><span lang="fr">Compétences</span></h2>
+      </div>
+      <div class="skills">
+        <div>
+          <h3><span lang="en">LLM &amp; agents</span><span lang="fr">LLM &amp; agents</span></h3>
+          <ul><li>LangGraph, LangChain</li><li><span lang="en">RAG, hybrid retrieval (BM25 + dense, RRF)</span><span lang="fr">RAG, recherche hybride (BM25 + dense, RRF)</span></li><li><span lang="en">FAISS, embeddings, vector search</span><span lang="fr">FAISS, embeddings, recherche vectorielle</span></li><li>Ollama, OpenAI, Claude, Groq APIs</li><li><span lang="en">LLM fine-tuning</span><span lang="fr">Fine-tuning de LLM</span></li></ul>
+        </div>
+        <div>
+          <h3>Machine learning</h3>
+          <ul><li>scikit-learn, PyTorch</li><li>XGBoost, Random Forest</li><li><span lang="en">Neural networks</span><span lang="fr">Réseaux de neurones</span></li><li><span lang="en">Classification, regression</span><span lang="fr">Classification, régression</span></li><li>MLflow</li></ul>
+        </div>
+        <div>
+          <h3><span lang="en">Forecasting &amp; data</span><span lang="fr">Prévision &amp; données</span></h3>
+          <ul><li>ARIMA, Prophet</li><li>SQL, SSIS</li><li>Pandas, NumPy</li><li>Power BI</li><li>Matplotlib, Seaborn</li></ul>
+        </div>
+        <div>
+          <h3><span lang="en">Engineering</span><span lang="fr">Ingénierie</span></h3>
+          <ul><li>Python</li><li>FastAPI, Flask, Django</li><li>Streamlit</li><li>Docker, AWS</li><li>Git, GitHub</li></ul>
+        </div>
+      </div>
+      <dl class="extras">
+        <div>
+          <dt>Certifications</dt>
+          <dd><span lang="en">Neo4j Certified Professional · AWS Cloud (in progress)</span><span lang="fr">Neo4j Certified Professional · AWS Cloud (en cours)</span></dd>
+        </div>
+        <div>
+          <dt><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
+          <dd><span lang="en">French and Arabic (native), English (fluent), Spanish (basic)</span><span lang="fr">Français et arabe (natif), anglais (courant), espagnol (notions)</span></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact__grid">
+      <div>
+        <h2><span lang="en">Let's work together</span><span lang="fr">Travaillons ensemble</span></h2>
+        <p class="sub" lang="en">Open to full-time roles in Paris, hybrid or remote, and to freelance missions in data science and LLM engineering. I reply within a day.</p>
+        <p class="sub" lang="fr">Ouvert aux postes en CDI à Paris, en hybride ou à distance, et aux missions freelance en data science et ingénierie LLM. Je réponds sous 24&#160;h.</p>
+      </div>
+      <dl class="rows">
+        <div class="row">
+          <dt>Email</dt>
+          <dd><a id="email-text" href="mailto:bazzaoui.youssef@gmail.com">bazzaoui.youssef@gmail.com</a></dd>
+          <button type="button" class="copy" id="copy-email" aria-live="polite"><span class="c-idle"><span lang="en">Copy</span><span lang="fr">Copier</span></span><span class="c-done"><span lang="en">Copied</span><span lang="fr">Copié</span></span></button>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <div class="resume-wrap ftco-animate">
-              <span class="date">2021 — 2023</span>
-              <h2 data-lang-en>Applied MSc in Data Science and Artificial Intelligence</h2>
-              <h2 data-lang-fr>Master Appliqué en Data Science et Intelligence Artificielle</h2>
-              <span class="position">DataScienceTech Institute</span>
-              <p class="mt-4">Paris, France</p>
-            </div>
-            <div class="resume-wrap ftco-animate">
-              <span class="date">2018 — 2020</span>
-              <h2 data-lang-en>Master's Degree in Computer Science — AI Specialization</h2>
-              <h2 data-lang-fr>Master Informatique — Spécialisation Intelligence Artificielle</h2>
-              <span class="position">University of Luxembourg</span>
-              <p class="mt-4" data-lang-en>Luxembourg · Thesis: ML-Based Situation Awareness for Autonomous Drones</p>
-              <p class="mt-4" data-lang-fr>Luxembourg · Thèse : Situation Awareness par ML pour drones autonomes</p>
-            </div>
-            <div class="resume-wrap ftco-animate">
-              <span class="date">2013 — 2017</span>
-              <h2 data-lang-en>Bachelor in Mathematics and Computer Science Applied to Social Sciences (MIAGE)</h2>
-              <h2 data-lang-fr>Licence Mathématiques et Informatique Appliquées aux Sciences Sociales (MIAGE)</h2>
-              <span class="position">Université Paris Nanterre</span>
-              <p class="mt-4">Paris, France</p>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="resume-wrap ftco-animate">
-              <span class="date" data-lang-en>June 2023 — Present</span>
-              <span class="date" data-lang-fr>Juin 2023 — Présent</span>
-              <h2 data-lang-en>Freelance Data Scientist / AI Engineer</h2>
-              <h2 data-lang-fr>Data Scientist / Ingénieur IA Freelance</h2>
-              <span class="position">Data Insights — Paris, France</span>
-              <ul class="resume-bullets mt-3" data-lang-en>
-                <li>Ophthalmology Flask app: medical LLM (Groq / Llama-3.3-70b), RAG system, AI chatbot, image analysis, role-based access (doctor / assistant / patient)</li>
-                <li>Time series forecasting on vehicle sales data (Python, Prophet / ARIMA) with Power BI KPI dashboard</li>
-                <li>ETL pipeline to automate data preparation and report generation (Python, SQL)</li>
-                <li>AI tools: resume matcher, agentic research assistant, cover letter generator (LangChain, LLM APIs)</li>
-              </ul>
-              <ul class="resume-bullets mt-3" data-lang-fr>
-                <li>App Flask ophtalmologie : LLM médical (Groq / Llama-3.3-70b), système RAG, chatbot IA, analyse d'images, accès par rôles (médecin / assistant / patient)</li>
-                <li>Prévision séries temporelles ventes véhicules (Python, Prophet / ARIMA) avec tableau de bord Power BI</li>
-                <li>Pipeline ETL pour automatiser préparation des données et génération de rapports (Python, SQL)</li>
-                <li>Outils IA : matching CV, assistant de recherche agentique, générateur de lettres (LangChain, APIs LLM)</li>
-              </ul>
-            </div>
-            <div class="resume-wrap ftco-animate">
-              <span class="date" data-lang-en>Dec 2022 — May 2023</span>
-              <span class="date" data-lang-fr>Déc 2022 — Mai 2023</span>
-              <h2 data-lang-en>Data Science Intern</h2>
-              <h2 data-lang-fr>Stagiaire Data Science</h2>
-              <span class="position">Eurobank Private Bank Luxembourg — Luxembourg</span>
-              <ul class="resume-bullets mt-3" data-lang-en>
-                <li>Built predictive models (ARIMA, logistic regression) on heterogeneous financial data: FX rates, securities trades, loans and deposits</li>
-                <li>Extracted, cleaned and structured core banking data via SQL and SSIS to feed analysis pipelines</li>
-                <li>Automated reports and created performance indicators for business teams</li>
-              </ul>
-              <ul class="resume-bullets mt-3" data-lang-fr>
-                <li>Modèles prédictifs (ARIMA, régression logistique) sur données financières hétérogènes : taux de change, titres, prêts et dépôts</li>
-                <li>Extraction, nettoyage et structuration des données bancaires via SQL et SSIS pour alimenter les pipelines d'analyse</li>
-                <li>Automatisation des rapports et création d'indicateurs de performance pour les équipes métier</li>
-              </ul>
-            </div>
-            <div class="resume-wrap ftco-animate">
-              <span class="date" data-lang-en>Sep 2020 — Sep 2021</span>
-              <span class="date" data-lang-fr>Sep 2020 — Sep 2021</span>
-              <h2 data-lang-en>Junior Python Developer</h2>
-              <h2 data-lang-fr>Développeur Python Junior</h2>
-              <span class="position">Valsesia — Casablanca, Morocco</span>
-              <ul class="resume-bullets mt-3" data-lang-en>
-                <li>Developed and maintained internal stock management and order tracking system (Python, Excel)</li>
-                <li>Built automation scripts for daily sales reports and data entry tasks</li>
-              </ul>
-              <ul class="resume-bullets mt-3" data-lang-fr>
-                <li>Développement et maintenance du système de gestion des stocks et suivi des commandes (Python, Excel)</li>
-                <li>Scripts d'automatisation pour les rapports de ventes quotidiens et la saisie de données</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-5">
-          <div class="col-md-8 text-center ftco-animate">
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-              <a href="{% static 'pdf/Youssef.pdf' %}" download class="btn btn-primary btn-yb btn-yb-primary">
-                <span data-lang-en>Download CV (EN)</span><span data-lang-fr>Télécharger CV (EN)</span>
-              </a>
-              <a href="{% static 'pdf/Youssef_Cv_Fr.pdf' %}" download class="btn btn-outline-primary btn-yb btn-yb-outline-dark">
-                <span data-lang-en>Download CV (FR)</span><span data-lang-fr>Télécharger CV (FR)</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </section>
-
-    <section class="ftco-section" id="services-section">
-      <div class="container">
-        <div class="row justify-content-center py-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2" data-lang-en>Services</h1>
-            <h1 class="big big-2" data-lang-fr>Services</h1>
-            <h2 class="mb-4" data-lang-en>Areas of Interest</h2>
-            <h2 class="mb-4" data-lang-fr>Domaines d'Intérêt</h2>
-            <p data-lang-en>Some of my favorite areas to work on.</p>
-            <p data-lang-fr>Voici les domaines qui me passionnent.</p>
-          </div>
+          <dt><span lang="en">Phone</span><span lang="fr">Téléphone</span></dt>
+          <dd><a href="tel:+33695759559">+33 6 95 75 95 59</a></dd>
         </div>
         <div class="row">
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#" class="services-1">
-              <span class="icon">
-                <i class="flaticon-analysis"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5" data-lang-en>Statistical Analysis</h3><h3 class="mb-5" data-lang-fr>Analyse Statistique</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#" class="services-1">
-              <span class="icon">
-                <i class="flaticon-flasks"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5" data-lang-en>Machine Learning</h3><h3 class="mb-5" data-lang-fr>Machine Learning</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#" class="services-1">
-              <span class="icon">
-                <i class="flaticon-ideas"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5" data-lang-en>LLM &amp; RAG Systems</h3><h3 class="mb-5" data-lang-fr>Systèmes LLM &amp; RAG</h3>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#" class="services-1">
-              <span class="icon">
-                <i class="flaticon-analysis"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5" data-lang-en>Data Visualization</h3><h3 class="mb-5" data-lang-fr>Visualisation des Données</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#" class="services-1">
-              <span class="icon">
-                <i class="flaticon-flasks"></i>
-              </span>
-
-              <div class="desc">
-                <h3 class="mb-5" data-lang-en>Time Series Forecasting</h3><h3 class="mb-5" data-lang-fr>Prévision de Séries Temporelles</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#" class="services-1">
-              <span class="icon">
-                <i class="flaticon-ideas"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5" data-lang-en>Natural Language Processing</h3><h3 class="mb-5" data-lang-fr>Traitement du Langage Naturel</h3>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="ftco-section" id="skills-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2" data-lang-en>Skills</h1>
-            <h1 class="big big-2" data-lang-fr>Compétences</h1>
-            <h2 class="mb-4" data-lang-en>My Skills</h2>
-            <h2 class="mb-4" data-lang-fr>Mes Compétences</h2>
-            <p data-lang-en>Core technical skills across data science, machine learning, and AI engineering.</p>
-            <p data-lang-fr>Compétences techniques en data science, machine learning et ingénierie IA.</p>
-          </div>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/youssef-bazzaoui/" target="_blank" rel="noopener">in/youssef-bazzaoui</a></dd>
         </div>
         <div class="row">
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Python</h3>
-              <div class="progress">
-                <div class="progress-bar color-1" role="progressbar" aria-valuenow="90"
-                  aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                  <span>90%</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>SQL</h3>
-              <div class="progress">
-                <div class="progress-bar color-2" role="progressbar" aria-valuenow="85"
-                  aria-valuemin="0" aria-valuemax="100" style="width:85%">
-                  <span>85%</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>LangChain / RAG</h3>
-              <div class="progress">
-                <div class="progress-bar color-3" role="progressbar" aria-valuenow="85"
-                  aria-valuemin="0" aria-valuemax="100" style="width:85%">
-                  <span>85%</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3 data-lang-en>Machine Learning</h3>
-              <h3 data-lang-fr>Machine Learning</h3>
-              <div class="progress">
-                <div class="progress-bar color-4" role="progressbar" aria-valuenow="88"
-                  aria-valuemin="0" aria-valuemax="100" style="width:88%">
-                  <span>88%</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Power BI</h3>
-              <div class="progress">
-                <div class="progress-bar color-5" role="progressbar" aria-valuenow="75"
-                  aria-valuemin="0" aria-valuemax="100" style="width:75%">
-                  <span>75%</span>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Docker / AWS</h3>
-              <div class="progress">
-                <div class="progress-bar color-6" role="progressbar" aria-valuenow="72"
-                  aria-valuemin="0" aria-valuemax="100" style="width:72%">
-                  <span>72%</span>
-                  </div>
-              </div>
-            </div>
-          </div>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/youssefbaz" target="_blank" rel="noopener">github.com/youssefbaz</a></dd>
         </div>
+      </dl>
+    </div>
+  </section>
+</main>
 
-        <!-- Tech stack chips -->
-        <div class="row mt-5 yb-skills-chips">
-          <div class="col-md-12 ftco-animate">
-            <h4 class="yb-chip-heading" data-lang-en>Languages &amp; Tools</h4>
-            <h4 class="yb-chip-heading" data-lang-fr>Langages &amp; Outils</h4>
-            <div class="yb-chip-row">
-              <span class="yb-chip yb-chip-hot">Python</span>
-              <span class="yb-chip">SQL</span>
-              <span class="yb-chip">Git / GitHub</span>
-              <span class="yb-chip">Docker</span>
-              <span class="yb-chip">AWS</span>
-              <span class="yb-chip">Streamlit</span>
-              <span class="yb-chip">Flask</span>
-            </div>
-            <h4 class="yb-chip-heading mt-4">AI / NLP</h4>
-            <div class="yb-chip-row">
-              <span class="yb-chip yb-chip-hot">LLM Fine-tuning</span>
-              <span class="yb-chip yb-chip-hot">RAG</span>
-              <span class="yb-chip">LangChain</span>
-              <span class="yb-chip">Embeddings</span>
-              <span class="yb-chip">Vector Search</span>
-              <span class="yb-chip">Ollama</span>
-              <span class="yb-chip">OpenAI API</span>
-              <span class="yb-chip">Claude API</span>
-              <span class="yb-chip">Groq</span>
-            </div>
-            <h4 class="yb-chip-heading mt-4" data-lang-en>ML &amp; Data</h4>
-            <h4 class="yb-chip-heading mt-4" data-lang-fr>ML &amp; Data</h4>
-            <div class="yb-chip-row">
-              <span class="yb-chip">ARIMA / Prophet</span>
-              <span class="yb-chip">XGBoost</span>
-              <span class="yb-chip">Random Forest</span>
-              <span class="yb-chip">Neural Networks</span>
-              <span class="yb-chip">Pandas</span>
-              <span class="yb-chip">NumPy</span>
-              <span class="yb-chip">Scikit-learn</span>
-              <span class="yb-chip">PyTorch</span>
-              <span class="yb-chip">Power BI</span>
-            </div>
-          </div>
-        </div>
-      </div>
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 Youssef Bazzaoui</span>
+    <span lang="en">Paris · Updated October 2026</span><span lang="fr">Paris · Mis à jour en octobre 2026</span>
+  </div>
+</footer>
 
-    </section>
+<script>
+(function(){
+  var root=document.documentElement;
 
+  /* language */
+  var btns=document.querySelectorAll('[data-setlang]');
+  function apply(l){
+    root.setAttribute('data-lang',l);root.lang=l;
+    for(var i=0;i<btns.length;i++){btns[i].setAttribute('aria-pressed',btns[i].getAttribute('data-setlang')===l?'true':'false');}
+  }
+  apply(root.getAttribute('data-lang')==='fr'?'fr':'en');
+  for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function(){
+      var l=this.getAttribute('data-setlang');apply(l);
+      try{localStorage.setItem('yb-lang',l)}catch(e){}
+    });
+  }
 
-    <section class="ftco-section ftco-project" id="projects-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2" data-lang-en>Projects</h1>
-            <h1 class="big big-2" data-lang-fr>Projets</h1>
-            <h2 class="mb-4" data-lang-en>My Projects</h2>
-            <h2 class="mb-4" data-lang-fr>Mes Projets</h2>
-            <p data-lang-en>Real-world projects across data science, machine learning, AI engineering, and code tooling.</p>
-            <p data-lang-fr>Projets concrets en data science, machine learning, ingénierie IA et outils de développement.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-			<a href="/ds_project.html" style="text-decoration: none; color: inherit;">
-				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static '/images/ds.png' %});">
-             <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="/ds_project.html"><span data-lang-en>Data Science</span><span data-lang-fr>Data Science</span></a></h3>
-                <h3><a href="/ds_project.html"><span data-lang-en>Projects</span><span data-lang-fr>Projets</span></a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-			<a href="/code_project.html" style="text-decoration: none; color: inherit;">
-            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static '/images/coding.jpg' %});">
-              <div class="overlay"></div>
-              <div class="text text-center p-4">
-                <h3><a href="/code_project.html"><span data-lang-en>Coding</span><span data-lang-fr>Développement</span></a></h3>
-                <h3><a href="/code_project.html"><span data-lang-en>Projects</span><span data-lang-fr>Projets</span></a></h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <a href="/genai_project.html" style="text-decoration: none; color: inherit;">
-                  <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static '/images/genai.jpg' %});">
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                      <h3><a href="/genai_project.html"><span data-lang-en>Generative AI</span><span data-lang-fr>IA Générative</span></a></h3>
-              <h3><a href="/genai_project.html"><span data-lang-en>Projects</span><span data-lang-fr>Projets</span></a></h3>
-                    </div>
-                  </div>
-                </div>
+  /* copy email */
+  var copyBtn=document.getElementById('copy-email'),email=document.getElementById('email-text');
+  if(copyBtn&&email){
+    copyBtn.addEventListener('click',function(){
+      var txt=email.textContent.trim();
+      function done(){copyBtn.classList.add('is-done');setTimeout(function(){copyBtn.classList.remove('is-done')},2000);}
+      function fallback(){try{var r=document.createRange();r.selectNodeContents(email);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback);}else{fallback();}
+    });
+  }
 
+})();
+</script>
 
-    </section>
-
-    <!--
-    <section class="ftco-section" id="blog-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Blog</h1>
-            <h2 class="mb-4"> Blog Posts</h2>
-
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry justify-content-end">
-				<div class="image" style="display: flex; justify-content: flex-start;">
-				  <a href="/blog.html">
-					<img src="{% static '/images/blog.jpg' %}" alt="Blog Image" style="width: 200px; height: auto; cursor: pointer;">
-				  </a>
-				</div>
-
-              <div class="text mt-3 float-right d-block">
-                <div class="d-flex align-items-center mb-3 meta">
-                  <p class="mb-0">
-                    <span class="mr-2">August 4, 2024</span>
-                    <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                  </p>
-                </div>
-                <h3 class="heading"><a href="/blog.html">From Struggles to Success: My Journey into Data Science </a></h3>
-                <p>My first blog shares my journey from struggling with scientific subjects to finding a passion for math and coding, ultimately leading to my career in data science.</p>
-              </div>
-            </div>
-          </div>
-
-
-
-
-          <div class="row d-flex">
-            <div class="col-md-4 d-flex ftco-animate">
-              <div class="blog-entry justify-content-end">
-          <div class="image" style="display: flex; justify-content: flex-start;">
-            <a href="/blog1.html">
-            <img src="{% static '/images/Pca.jpg' %}" alt="Blog Image" style="width: 200px; height: auto; cursor: pointer;">
-            </a>
-          </div>
-  
-                <div class="text mt-3 float-right d-block">
-                  <div class="d-flex align-items-center mb-3 meta">
-                    <p class="mb-0">
-                      <span class="mr-2">March 24, 2025</span>
-                      <a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                    </p>
-                  </div>
-                  <h3 class="heading"><a href="/blog1.html">PCA Without Panic </a></h3>
-                  <p>A Gentle Introduction to Principal Component Analysis.</p>
-                </div>
-              </div>
-            </div>
-  
-        </div>
-      </div>
-    </section>
--->
-    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-        <div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="2">0</strong>
-                <span data-lang-en>Years Freelance</span>
-                <span data-lang-fr>Ans Freelance</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="5">0</strong>
-                <span data-lang-en>AI Projects</span>
-                <span data-lang-fr>Projets IA</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="2">0</strong>
-                <span data-lang-en>Master's Degrees</span>
-                <span data-lang-fr>Masters Obtenus</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="3">0</strong>
-                <span data-lang-en>Countries Worked In</span>
-                <span data-lang-fr>Pays de Travail</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7 ftco-animate text-center">
-            <h2 data-lang-en>Available for full-time &amp; freelance opportunities</h2>
-            <h2 data-lang-fr>Disponible pour des opportunités CDI &amp; freelance</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2" data-lang-en>Contact</h1>
-            <h1 class="big big-2" data-lang-fr>Contact</h1>
-            <h2 class="mb-4" data-lang-en>Get in Touch</h2>
-            <h2 class="mb-4" data-lang-fr>Me Contacter</h2>
-          </div>
-        </div>
-
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <a class="align-self-stretch box p-4 text-center yb-contact-box" href="https://www.linkedin.com/in/youssef-bazzaoui/" target="_blank" rel="noopener">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-linkedin"></span>
-              </div>
-              <h3 class="mb-4">LinkedIn</h3>
-              <p class="yb-contact-value">youssef-bazzaoui</p>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <a class="align-self-stretch box p-4 text-center yb-contact-box" href="https://github.com/youssefbaz" target="_blank" rel="noopener">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-github"></span>
-              </div>
-              <h3 class="mb-4">GitHub</h3>
-              <p class="yb-contact-value">youssefbaz</p>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <a class="align-self-stretch box p-4 text-center yb-contact-box" href="tel:+33695759559">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-phone2"></span>
-              </div>
-              <h3 class="mb-4" data-lang-en>Phone</h3>
-              <h3 class="mb-4" data-lang-fr>Téléphone</h3>
-              <p class="yb-contact-value">+33 6 95 75 95 59</p>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <a class="align-self-stretch box p-4 text-center yb-contact-box" href="mailto:bazzaoui.youssef@gmail.com">
-              <div class="icon d-flex align-items-center justify-content-center">
-                <span class="icon-paper-plane"></span>
-              </div>
-              <h3 class="mb-4">Email</h3>
-              <p class="yb-contact-value">bazzaoui.youssef@gmail.com</p>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-{% endblock %}
+</body>
+</html>
